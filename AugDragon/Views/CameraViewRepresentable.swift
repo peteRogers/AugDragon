@@ -19,12 +19,12 @@ struct CameraViewRepresentable: UIViewControllerRepresentable {
 	var sampleBuffer: ((CMSampleBuffer) -> Void)?
 	
 	
+	
 	func makeUIViewController(context: Context) -> CameraViewController {
 		let cvc = CameraViewController()
 		cvc.sample = sampleBuffer
-		context.coordinator.viewController = cvc
-		//cvc.delegate = context.coordinator
-		cvc.takePhoto()
+		context.coordinator.setupFunctionCaller(viewController: cvc)
+		cvc.coordinator = context.coordinator
 		return cvc
 	}
 	
@@ -33,27 +33,28 @@ struct CameraViewRepresentable: UIViewControllerRepresentable {
 	}
 	
 	func makeCoordinator() -> Coordinator {
-		print("from make coordinator")
 		return Coordinator(self, model: model)
 	}
 	
+	
 	class Coordinator: NSObject {
-		var parent: CameraViewRepresentable
-		var viewController: CameraViewController?
-		var model: CameraViewModel
+	 var parent: CameraViewRepresentable
+	 var model: CameraViewModel
 
-		init(_ parent: CameraViewRepresentable, model: CameraViewModel) {
-			self.parent = parent
-			self.model = model
+	 init(_ parent: CameraViewRepresentable, model: CameraViewModel) {
+		 self.parent = parent
+		 self.model = model
+	 }
+		@MainActor func imageDataChanged(newValue: CGImage){
+			model.rawPhoto = newValue
 		}
 
-		// A function that the model can call
-		func takePhoto() {
-			print("from cvr")
-			viewController?.takePhoto()
-			print(viewController.debugDescription)
-		}
-	}
+		@MainActor func setupFunctionCaller(viewController: CameraViewController) {
+		 model.takePhotoCaller = {
+			 viewController.takePhoto()
+		 }
+	 }
+ }
 	
 	
 //	func callFunctionOnController(from uiViewController: MyUIViewController) {
