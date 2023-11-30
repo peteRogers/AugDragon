@@ -16,8 +16,12 @@ import UIKit
 	
 	@Published var qrcode:[VNBarcodeObservation] = []
 	//@Published var drawingDetected = false // 4 qrcodes counted
-	@Published var takingPicture = false
+	@Published var showCamera = false
+	@Published var showPhotoPreview = false
+	@Published var home = true
+	@Published var showARView = false
 	@Published var capturedPhotoPreview:UIImage?
+	
 	
 	var takePhotoCaller: (() -> Void)?
 	
@@ -30,8 +34,18 @@ import UIKit
 		didSet{
 			if let img = rawPhoto{
 				capturedPhotoPreview = UIImage(cgImage: img, scale: 1.0, orientation: .right)
+				let ci = CI_AnalyserModel()
+				
+				do{
+					//print("w: \(img.width) h: \(img.height)")
+					let im = try ci.analyseImage(cImage: CIImage(cgImage: img))
+					capturedPhotoPreview = im
+					
+				}catch{
+					print(error)
 				}
 			}
+		}
 	}
 	
 	
@@ -44,26 +58,26 @@ import UIKit
 				do{
 					let vn:[VNBarcodeObservation] = try visionAnalyser.analyseQRCodes(sample: sample)
 					DispatchQueue.main.async { [self] in
-					if(vn.count > 0){
+						if(vn.count > 0){
 							//self.qrcode = vn[0]
-						//print(sample.formatDescription)
-						
-						self.qrcode = vn
-						if(vn.count == 4){
-							print("from taking photo")
-							//self.drawingDetected = true
+							//	print(sample.formatDescription)
 							
-							//self.callTakePhotoFunctionInUIKIT()
+							self.qrcode = vn
+							if(vn.count == 4){
+								//	print("from taking photo")
+								//self.drawingDetected = true
+								
+								//self.callTakePhotoFunctionInUIKIT()
+							}else{
+								//self.drawingDetected = false
+							}
 						}else{
-							//self.drawingDetected = false
+							//self.qrcode = []
 						}
-					}else{
-						self.qrcode = []
-					}
 						
 					}
 				}catch{
-						print(error)
+					print(error)
 				}
 			}
 		}

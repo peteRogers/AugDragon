@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F7D5AC52B0CFD15001760FE /* QuickLookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */; };
+		2F7D5AC72B0CFDCB001760FE /* catFace.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2F7D5AC62B0CFDCB001760FE /* catFace.usdz */; };
+		2F7D5AC92B0CFFCD001760FE /* RealityKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */; };
+		2FBBE8C62B1035BB00777031 /* CI_AnalyserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */; };
+		2FBBE8C82B10406400777031 /* catFace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2FBBE8C72B10406400777031 /* catFace.jpg */; };
 		2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */; };
 		2FEC1D892AFB17F10047B439 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D882AFB17F10047B439 /* CameraView.swift */; };
 		2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D232AF3FD6000B80D62 /* AugDragonApp.swift */; };
@@ -22,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLookController.swift; sourceTree = "<group>"; };
+		2F7D5AC62B0CFDCB001760FE /* catFace.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = catFace.usdz; sourceTree = "<group>"; };
+		2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitView.swift; sourceTree = "<group>"; };
+		2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CI_AnalyserModel.swift; sourceTree = "<group>"; };
+		2FBBE8C72B10406400777031 /* catFace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = catFace.jpg; sourceTree = "<group>"; };
 		2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCheckView.swift; sourceTree = "<group>"; };
 		2FEC1D882AFB17F10047B439 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		2FFD8D202AF3FD6000B80D62 /* AugDragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugDragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +77,8 @@
 		2FFD8D222AF3FD6000B80D62 /* AugDragon */ = {
 			isa = PBXGroup;
 			children = (
+				2F7D5AC62B0CFDCB001760FE /* catFace.usdz */,
+				2FBBE8C72B10406400777031 /* catFace.jpg */,
 				2FFD8D3E2AF3FFBF00B80D62 /* Views */,
 				2FFD8D312AF3FD7E00B80D62 /* Models */,
 				2FFD8D392AF3FF4100B80D62 /* UIKitViews */,
@@ -89,6 +101,7 @@
 		2FFD8D312AF3FD7E00B80D62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */,
 				2FFD8D372AF3FE2300B80D62 /* CameraViewModel.swift */,
 				2FFD8D322AF3FDB700B80D62 /* VisionAnalyserModel.swift */,
 			);
@@ -107,7 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				2FFD8D3C2AF3FF5F00B80D62 /* CameraViewController.swift */,
+				2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */,
 				2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */,
+				2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */,
 			);
 			path = UIKitViews;
 			sourceTree = "<group>";
@@ -182,6 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFD8D2B2AF3FD6200B80D62 /* Preview Assets.xcassets in Resources */,
+				2FBBE8C82B10406400777031 /* catFace.jpg in Resources */,
+				2F7D5AC72B0CFDCB001760FE /* catFace.usdz in Resources */,
 				2FFD8D282AF3FD6200B80D62 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,11 +212,14 @@
 			files = (
 				2FFD8D362AF3FDF900B80D62 /* AppError.swift in Sources */,
 				2FFD8D332AF3FDB700B80D62 /* VisionAnalyserModel.swift in Sources */,
+				2F7D5AC52B0CFD15001760FE /* QuickLookController.swift in Sources */,
 				2FFD8D402AF3FFD400B80D62 /* ContentView.swift in Sources */,
 				2FFD8D3B2AF3FF5700B80D62 /* CameraPreview.swift in Sources */,
+				2FBBE8C62B1035BB00777031 /* CI_AnalyserModel.swift in Sources */,
 				2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */,
 				2FEC1D892AFB17F10047B439 /* CameraView.swift in Sources */,
 				2FFD8D3D2AF3FF5F00B80D62 /* CameraViewController.swift in Sources */,
+				2F7D5AC92B0CFFCD001760FE /* RealityKitView.swift in Sources */,
 				2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */,
 				2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */,
 				2FFD8D422AF3FFFA00B80D62 /* CameraViewRepresentable.swift in Sources */,

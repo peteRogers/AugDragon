@@ -9,19 +9,23 @@ import SwiftUI
 import Vision
 
 struct ContentView: View {
-	
 	@State private var orientation = UIDeviceOrientation.unknown
-	
 	@StateObject var cameraVM = CameraViewModel()
 	var body: some View {
 		VStack{
-			Spacer()
-			if (cameraVM.takingPicture == true){
+			if(cameraVM.home){
+				HomeView(cvm: cameraVM)
+			}
+			if(cameraVM.showCamera){
+				//Spacer()
 				CameraView(cameraVM: cameraVM)
-					//.transition(AnyTransition.opacity.combined(with: .slide))
-			}else{
+			}
+			if(cameraVM.showPhotoPreview){
+				Spacer()
 				photoCheckView(cvm:cameraVM)
-					.transition(AnyTransition.opacity.combined(with: .slide))
+			}
+			if(cameraVM.showARView){
+				RealityKitView()
 			}
 		}
 	}
@@ -29,12 +33,11 @@ struct ContentView: View {
 
 struct DeviceRotationViewModifier: ViewModifier {
 	let action: (UIDeviceOrientation) -> Void
-	func body(content: Content) -> some View {
-		content
-			.onAppear()
-			.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-				action(UIDevice.current.orientation)
-			}
+	func body(content: Content) -> some View {content
+		.onAppear()
+		.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+			action(UIDevice.current.orientation)
+		}
 	}
 }
 
@@ -44,7 +47,25 @@ extension View {
 	}
 }
 
-
+struct HomeView: View{
+	@ObservedObject var cvm:CameraViewModel
+	var body: some View{
+		VStack{
+			Button(action: {
+				cvm.home = false
+				cvm.showPhotoPreview = true
+				//cvm.takingPicture.toggle()
+				// Action to perform when the button is tapped
+			}) {
+				Image(systemName: "arrow.up.left.and.arrow.down.right")
+					.font(.system(size:40))
+					.foregroundColor(.red)
+					.background(Color.white.opacity(0.3))
+					.cornerRadius(15)
+			}.padding()
+		}
+	}
+}
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {

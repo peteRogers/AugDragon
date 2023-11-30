@@ -22,16 +22,12 @@ class VisionAnalyserModel{
 			debugPrint("unable to get image from sample buffer")
 			throw QrCodeError.badSample
 		}
-		
 		let barcodeRequest = VNDetectBarcodesRequest()
 		barcodeRequest.symbologies = [.qr]
-		
 		try? self.sequenceHandler.perform([barcodeRequest], on: frame, orientation: .up)
 		if let results = barcodeRequest.results {
-			
 			return results
 		}
 		throw QrCodeError.badbad
 	}
-	
 }

@@ -26,11 +26,12 @@ struct photoCheckView: View{
 
 				}
 				VStack{
+					//resize view button (top Right)
 					HStack{
 						Spacer()
 						Button(action: {
 							
-							cvm.takingPicture.toggle()
+							//cvm.takingPicture.toggle()
 							// Action to perform when the button is tapped
 						}) {
 							Image(systemName: "arrow.up.left.and.arrow.down.right")
@@ -48,7 +49,10 @@ struct photoCheckView: View{
 				Spacer()
 				Button(action: {
 					//done.toggle()
-					
+					cvm.home = true
+					cvm.showCamera = false
+					cvm.showARView = false
+					cvm.showPhotoPreview = false
 					// Action to perform when the button is tapped
 				}) {
 					
@@ -61,7 +65,9 @@ struct photoCheckView: View{
 					
 					withAnimation {
 						//done.toggle()
-						cvm.takingPicture.toggle()
+						cvm.showCamera = true
+						cvm.showARView = false
+						cvm.showPhotoPreview = false
 					}
 					
 					// Action to perform when the button is tapped
@@ -73,9 +79,11 @@ struct photoCheckView: View{
 				}
 				Spacer()
 				Button(action: {
-					//done.toggle()
+					//cvm.home = true
+					cvm.showCamera = false
+					cvm.showPhotoPreview = false
+					cvm.showARView = true
 					
-					// Action to perform when the button is tapped
 				}) {
 					
 					Image(systemName: "arrow.up.heart")

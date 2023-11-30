@@ -36,6 +36,5 @@ struct QuickLookController: UIViewControllerRepresentable {
         ) -> QLPreviewItem {
             return parent.url as NSURL
         }
-        
     }
 }

@@ -17,30 +17,31 @@ struct CameraView: View{
 				cameraVM.sampleBuffer = $0
 			}
 			
-			.overlay(){
-				GeometryReader { geometry in
-					ForEach(cameraVM.qrcode, id: \.self) { qrcode in
-						let myY = mapper(x: qrcode.boundingBox.midX,
-										 in_min: 0.0 ,
-										 in_max: 1.0,
-										 out_min:geometry.frame(in: .global).minY,
-										 out_max: geometry.frame(in: .global).height)
-						RoundedRectangle(cornerRadius: 1)
-							.stroke(.blue, lineWidth: 1)
-							.frame(width: geometry.size.width * (qrcode.boundingBox.height),
-								   height:geometry.size.width * (qrcode.boundingBox.height))
-							.position(CGPoint(x: geometry.size.width * (qrcode.boundingBox.midY),
-											  y: myY - (geometry.size.width * (qrcode.boundingBox.height)/2)))
-					}
-				}
-			}
+//			.overlay(){
+//				GeometryReader { geometry in
+//					ForEach(cameraVM.qrcode, id: \.self) { qrcode in
+//						let myY = mapper(x: qrcode.boundingBox.midX,
+//										 in_min: 0.0 ,
+//										 in_max: 1.0,
+//										 out_min:geometry.frame(in: .global).minY,
+//										 out_max: geometry.frame(in: .global).height)
+//						RoundedRectangle(cornerRadius: 1)
+//							.stroke(.blue, lineWidth: 1)
+//							.frame(width: geometry.size.width * (qrcode.boundingBox.height),
+//								   height:geometry.size.width * (qrcode.boundingBox.height))
+//							.position(CGPoint(x: geometry.size.width * (qrcode.boundingBox.midY),
+//											  y: myY - (geometry.size.width * (qrcode.boundingBox.height)/2)))
+//					}
+//				}
+//			}
 			VStack{
 				Spacer()
 				Button(action: {
 					// Action to perform when the button is tapped
 					cameraVM.callTakePhotoFunctionInUIKIT()
 					withAnimation{
-						cameraVM.takingPicture = false
+						cameraVM.showCamera = false
+						cameraVM.showPhotoPreview = true
 					}
 					
 				}) {
@@ -49,7 +50,7 @@ struct CameraView: View{
 						.foregroundColor(.red)
 					
 					
-				}.padding(50)
+				}
 			}
 			
 		}
