@@ -12,20 +12,29 @@ struct ContentView: View {
 	@State private var orientation = UIDeviceOrientation.unknown
 	@StateObject var cameraVM = CameraViewModel()
 	var body: some View {
-		VStack{
-			if(cameraVM.home){
-				HomeView(cvm: cameraVM)
-			}
-			if(cameraVM.showCamera){
-				//Spacer()
-				CameraView(cameraVM: cameraVM)
-			}
-			if(cameraVM.showPhotoPreview){
-				Spacer()
-				photoCheckView(cvm:cameraVM)
-			}
-			if(cameraVM.showARView){
-				RealityKitView()
+		ZStack{
+			VStack{
+		
+					Rectangle()
+				}.frame(maxHeight: .infinity)
+				.edgesIgnoringSafeArea(.all)
+			
+			VStack{
+				if(cameraVM.home){
+					HomeView(cvm: cameraVM)
+				}
+				if(cameraVM.showCamera){
+					//Spacer()
+					CameraView(cameraVM: cameraVM)
+				}
+				if(cameraVM.showPhotoPreview){
+					Spacer()
+					photoCheckView(cvm:cameraVM)
+				}
+				if(cameraVM.showARView){
+					RealityView(cameraVM: cameraVM)
+					
+				}
 			}
 		}
 	}

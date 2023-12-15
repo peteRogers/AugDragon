@@ -14,13 +14,17 @@ import UIKit
 	
 	let visionAnalyser = VisionAnalyserModel()
 	
-	@Published var qrcode:[VNBarcodeObservation] = []
+	//@Published var qrcode:[VNBarcodeObservation] = []
 	//@Published var drawingDetected = false // 4 qrcodes counted
 	@Published var showCamera = false
 	@Published var showPhotoPreview = false
 	@Published var home = true
 	@Published var showARView = false
 	@Published var capturedPhotoPreview:UIImage?
+	@Published var A = true
+	@Published var B = false
+	@Published var C = false
+	@Published var D = false
 	
 	
 	var takePhotoCaller: (() -> Void)?
@@ -55,33 +59,62 @@ import UIKit
 		didSet{
 			
 			if let sample = sampleBuffer{
-				do{
-					let vn:[VNBarcodeObservation] = try visionAnalyser.analyseQRCodes(sample: sample)
+				
 					DispatchQueue.main.async { [self] in
-						if(vn.count > 0){
-							//self.qrcode = vn[0]
-							//	print(sample.formatDescription)
-							
-							self.qrcode = vn
-							if(vn.count == 4){
-								//	print("from taking photo")
-								//self.drawingDetected = true
-								
-								//self.callTakePhotoFunctionInUIKIT()
-							}else{
-								//self.drawingDetected = false
-							}
-						}else{
-							//self.qrcode = []
+						do{
+						let vn:[VNBarcodeObservation] = try visionAnalyser.analyseQRCodes(sample: sample)
+//							if(vn.count > 0){
+//								
+//								//print(vn[0].payloadStringValue)
+//							}
+//							self.A = false
+//							if((checkCodeFound(search: "A", array: vn))){
+//								self.A = true
+//							}
+						self.A = (checkCodeFound(search: "A", array: vn))
+						self.B = (checkCodeFound(search: "B", array: vn))
+						self.C = (checkCodeFound(search: "C", array: vn))
+						self.D = (checkCodeFound(search: "D", array: vn))
+						}catch{
+							print(error)
 						}
-						
 					}
-				}catch{
-					print(error)
-				}
+//					DispatchQueue.main.async { [self] in
+//						if(vn.count > 0){
+//							//self.qrcode = vn[0]
+//							//	print(sample.formatDescription)
+//							
+//							//self.qrcode = vn
+//							if(vn.count == 4){
+//								//	print("from taking photo")
+//								//self.drawingDetected = true
+//								
+//								//self.callTakePhotoFunctionInUIKIT()
+//							}else{
+//								//self.drawingDetected = false
+//							}
+//						}else{
+//							//self.qrcode = []
+//						}
+//						
+//					}
+				
 			}
 		}
 	}
+	
+	private func checkCodeFound(search:String, array:[VNBarcodeObservation]) -> Bool{
+		if let matchedObservation = array.first(where: { $0.payloadStringValue == search }) {
+			// matchedObservation contains the first VNBarcodeObservation where payloadString matches 'x'
+			//print(matchedObservation)
+			return true
+		} else {
+			// No match found
+			//print("No match found")
+			return false
+		}
+	}
+	
 	
 	func UIImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> UIImage? {
 		let ciImage = CIImage(cvPixelBuffer: pixelBuffer)

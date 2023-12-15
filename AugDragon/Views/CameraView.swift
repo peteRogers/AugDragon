@@ -13,9 +13,85 @@ struct CameraView: View{
 	@ObservedObject var cameraVM:CameraViewModel
 	var body: some View{
 		ZStack{
-			CameraViewRepresentable(model: cameraVM){
-				cameraVM.sampleBuffer = $0
+			VStack{
+				Rectangle()
+			}.frame(maxHeight: .infinity)
+			 .edgesIgnoringSafeArea(.all)
+			VStack{
+				CameraViewRepresentable(model: cameraVM){
+					cameraVM.sampleBuffer = $0
+				}
 			}
+			
+			VStack{
+				Spacer()
+				Spacer()
+				HStack{
+					Spacer()
+					Spacer()
+					if(cameraVM.A == true){
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.red)
+							.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+					}else{
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.gray)
+							.opacity(0.4)
+					}
+					Spacer()
+					if(cameraVM.B == true){
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.red)
+							.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+					}else{
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.gray)
+							.opacity(0.4)
+					}
+					Spacer()
+					Spacer()
+					
+				}.padding(.top)
+				//Spacer()
+				HStack{
+					Spacer()
+					Spacer()
+					if(cameraVM.C == true){
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.red)
+							.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+					}else{
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.gray)
+							.opacity(0.4)
+					}
+					Spacer()
+					if(cameraVM.D == true){
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.red)
+							.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+					}else{
+						Image(systemName: "qrcode.viewfinder")
+							.font(.system(size: 50))
+							.foregroundColor(.gray)
+							.opacity(0.4)
+					}
+					Spacer()
+					Spacer()
+					
+				}.padding(.top, 100)
+				Spacer()
+				Spacer()
+			}
+			
+			
 			
 //			.overlay(){
 //				GeometryReader { geometry in
@@ -55,8 +131,8 @@ struct CameraView: View{
 			
 		}
 	}
-	func mapper( x: CGFloat, in_min:CGFloat ,in_max:CGFloat, out_min:CGFloat, out_max:CGFloat)->CGFloat
-	{
-		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-	}
+//	func mapper( x: CGFloat, in_min:CGFloat ,in_max:CGFloat, out_min:CGFloat, out_max:CGFloat)->CGFloat
+//	{
+//		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+//	}
 }
