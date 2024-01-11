@@ -14,11 +14,9 @@ struct ContentView: View {
 	var body: some View {
 		ZStack{
 			VStack{
-		
-					Rectangle()
+				Rectangle()
 				}.frame(maxHeight: .infinity)
 				.edgesIgnoringSafeArea(.all)
-			
 			VStack{
 				if(cameraVM.home){
 					HomeView(cvm: cameraVM)
@@ -29,13 +27,25 @@ struct ContentView: View {
 				}
 				if(cameraVM.showPhotoPreview){
 					Spacer()
-					photoCheckView(cvm:cameraVM)
+					ZStack{
+						ProgressView()
+							.frame(width: 300, height: 300)
+							.scaleEffect(5.0)
+							.tint(.white)
+						photoCheckView(cvm:cameraVM)
+					}
 				}
 				if(cameraVM.showARView){
-					RealityView(cameraVM: cameraVM)
-					
+					ZStack{
+						ProgressView()
+							.frame(width: 300, height: 300)
+							.scaleEffect(5.0)
+							.tint(.white)
+						RealityView(cameraVM: cameraVM)
+					}
 				}
 			}
+
 		}
 	}
 }
@@ -56,25 +66,7 @@ extension View {
 	}
 }
 
-struct HomeView: View{
-	@ObservedObject var cvm:CameraViewModel
-	var body: some View{
-		VStack{
-			Button(action: {
-				cvm.home = false
-				cvm.showPhotoPreview = true
-				//cvm.takingPicture.toggle()
-				// Action to perform when the button is tapped
-			}) {
-				Image(systemName: "arrow.up.left.and.arrow.down.right")
-					.font(.system(size:40))
-					.foregroundColor(.red)
-					.background(Color.white.opacity(0.3))
-					.cornerRadius(15)
-			}.padding()
-		}
-	}
-}
+
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {

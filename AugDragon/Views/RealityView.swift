@@ -15,7 +15,7 @@ struct RealityView: View{
 	var body: some View{
 		ZStack{
 			
-			RealityKitView(model: cameraVM)
+			RealityKitLiveView(model: cameraVM)
 			VStack{
 				HStack{
 					
@@ -24,8 +24,8 @@ struct RealityView: View{
 						//cameraVM.callTakePhotoFunctionInUIKIT()
 						withAnimation{
 							cameraVM.showARView = false
-							cameraVM.showCamera = true
-							//cameraVM.showPhotoPreview = true
+							cameraVM.showCamera = false
+							cameraVM.showPhotoPreview = true
 						}
 						
 					}) {

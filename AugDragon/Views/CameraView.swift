@@ -115,10 +115,7 @@ struct CameraView: View{
 				Button(action: {
 					// Action to perform when the button is tapped
 					cameraVM.callTakePhotoFunctionInUIKIT()
-					withAnimation{
-						cameraVM.showCamera = false
-						cameraVM.showPhotoPreview = true
-					}
+				
 					
 				}) {
 					Image(systemName: "record.circle")

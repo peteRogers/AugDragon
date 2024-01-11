@@ -54,13 +54,14 @@ struct photoCheckView: View{
 				Spacer()
 				HStack{
 					Spacer()
+					//home button selected
 					Button(action: {
 						//done.toggle()
 						cvm.home = true
 						cvm.showCamera = false
 						cvm.showARView = false
 						cvm.showPhotoPreview = false
-						// Action to perform when the button is tapped
+						
 					}) {
 						
 						Image(systemName: "arrow.left.circle")
@@ -85,12 +86,15 @@ struct photoCheckView: View{
 							.foregroundColor(.red)
 					}
 					Spacer()
+					//save button
 					Button(action: {
-						//cvm.home = true
-						cvm.showCamera = false
-						cvm.showPhotoPreview = false
-						cvm.showARView = true
-						
+						withAnimation {
+							//cvm.home = true
+							cvm.showCamera = false
+							cvm.showPhotoPreview = false
+							cvm.showARView = true
+							cvm.tryToSaveMask()
+						}
 					}) {
 						
 						Image(systemName: "arrow.up.heart")

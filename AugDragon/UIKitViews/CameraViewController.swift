@@ -84,15 +84,18 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate,AVC
 	
 	func capturePhoto() {
 		let photoSettings = AVCapturePhotoSettings()
-		   photoOutput.capturePhoto(with: photoSettings, delegate: self)
-	   }
+		photoOutput.capturePhoto(with: photoSettings, delegate: self)
+		print("taken photo")
+	}
 	
 	func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+		//print(photo.)
 		if let error = error {
 			print("Error capturing photo: \(error)")
 			return
 		}
 		if let imageData = photo.cgImageRepresentation() {
+			print(imageData.width)
 			coordinator?.imageDataChanged(newValue: imageData)
 		}
 	}

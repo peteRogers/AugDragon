@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4756DE2B2FC89400857831 /* RealityKitLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4756DD2B2FC89400857831 /* RealityKitLiveView.swift */; };
 		2F6E14FC2B2B6D8A009B6710 /* catMaskLayoutV2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */; };
 		2F6E14FE2B2B78C5009B6710 /* RealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E14FD2B2B78C5009B6710 /* RealityView.swift */; };
 		2F7D5AC52B0CFD15001760FE /* QuickLookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */; };
 		2F7D5AC72B0CFDCB001760FE /* catFace.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2F7D5AC62B0CFDCB001760FE /* catFace.usdz */; };
 		2F7D5AC92B0CFFCD001760FE /* RealityKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */; };
+		2F8A87AD2B32EB3500DA3DA4 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A87AC2B32EB3500DA3DA4 /* ItemView.swift */; };
+		2F8A87AF2B32EBCA00DA3DA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A87AE2B32EBCA00DA3DA4 /* HomeView.swift */; };
+		2F8A87B22B32F9BC00DA3DA4 /* ItemEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */; };
 		2FBBE8C62B1035BB00777031 /* CI_AnalyserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */; };
 		2FBBE8C82B10406400777031 /* catFace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2FBBE8C72B10406400777031 /* catFace.jpg */; };
 		2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */; };
@@ -29,11 +33,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4756DD2B2FC89400857831 /* RealityKitLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitLiveView.swift; sourceTree = "<group>"; };
 		2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catMaskLayoutV2.png; sourceTree = "<group>"; };
 		2F6E14FD2B2B78C5009B6710 /* RealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityView.swift; sourceTree = "<group>"; };
 		2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLookController.swift; sourceTree = "<group>"; };
 		2F7D5AC62B0CFDCB001760FE /* catFace.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = catFace.usdz; sourceTree = "<group>"; };
 		2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitView.swift; sourceTree = "<group>"; };
+		2F8A87AC2B32EB3500DA3DA4 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		2F8A87AE2B32EBCA00DA3DA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntry.swift; sourceTree = "<group>"; };
 		2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CI_AnalyserModel.swift; sourceTree = "<group>"; };
 		2FBBE8C72B10406400777031 /* catFace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = catFace.jpg; sourceTree = "<group>"; };
 		2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCheckView.swift; sourceTree = "<group>"; };
@@ -62,6 +70,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1010B22B33630600505880 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F7D5AC62B0CFDCB001760FE /* catFace.usdz */,
+				2FBBE8C72B10406400777031 /* catFace.jpg */,
+				2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		2F8A87B02B32F90E00DA3DA4 /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */,
+			);
+			path = structs;
+			sourceTree = "<group>";
+		};
 		2FFD8D172AF3FD6000B80D62 = {
 			isa = PBXGroup;
 			children = (
@@ -81,9 +107,8 @@
 		2FFD8D222AF3FD6000B80D62 /* AugDragon */ = {
 			isa = PBXGroup;
 			children = (
-				2F7D5AC62B0CFDCB001760FE /* catFace.usdz */,
-				2FBBE8C72B10406400777031 /* catFace.jpg */,
-				2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */,
+				2F1010B22B33630600505880 /* resources */,
+				2F8A87B02B32F90E00DA3DA4 /* structs */,
 				2FFD8D3E2AF3FFBF00B80D62 /* Views */,
 				2FFD8D312AF3FD7E00B80D62 /* Models */,
 				2FFD8D392AF3FF4100B80D62 /* UIKitViews */,
@@ -128,6 +153,7 @@
 				2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */,
 				2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */,
 				2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */,
+				2F4756DD2B2FC89400857831 /* RealityKitLiveView.swift */,
 			);
 			path = UIKitViews;
 			sourceTree = "<group>";
@@ -137,9 +163,11 @@
 			children = (
 				2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */,
 				2FFD8D3F2AF3FFD400B80D62 /* ContentView.swift */,
+				2F8A87AC2B32EB3500DA3DA4 /* ItemView.swift */,
 				2FEC1D882AFB17F10047B439 /* CameraView.swift */,
 				2F6E14FD2B2B78C5009B6710 /* RealityView.swift */,
 				2FFD8D412AF3FFFA00B80D62 /* CameraViewRepresentable.swift */,
+				2F8A87AE2B32EBCA00DA3DA4 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,13 +248,17 @@
 				2FFD8D362AF3FDF900B80D62 /* AppError.swift in Sources */,
 				2FFD8D332AF3FDB700B80D62 /* VisionAnalyserModel.swift in Sources */,
 				2F7D5AC52B0CFD15001760FE /* QuickLookController.swift in Sources */,
+				2F8A87AD2B32EB3500DA3DA4 /* ItemView.swift in Sources */,
 				2F6E14FE2B2B78C5009B6710 /* RealityView.swift in Sources */,
+				2F8A87AF2B32EBCA00DA3DA4 /* HomeView.swift in Sources */,
+				2F4756DE2B2FC89400857831 /* RealityKitLiveView.swift in Sources */,
 				2FFD8D402AF3FFD400B80D62 /* ContentView.swift in Sources */,
 				2FFD8D3B2AF3FF5700B80D62 /* CameraPreview.swift in Sources */,
 				2FBBE8C62B1035BB00777031 /* CI_AnalyserModel.swift in Sources */,
 				2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */,
 				2FEC1D892AFB17F10047B439 /* CameraView.swift in Sources */,
 				2FFD8D3D2AF3FF5F00B80D62 /* CameraViewController.swift in Sources */,
+				2F8A87B22B32F9BC00DA3DA4 /* ItemEntry.swift in Sources */,
 				2F7D5AC92B0CFFCD001760FE /* RealityKitView.swift in Sources */,
 				2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */,
 				2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */,
