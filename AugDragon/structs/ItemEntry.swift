@@ -21,3 +21,10 @@ struct ItemEntry: Codable, Identifiable {
 		]
 	}
 }
+
+struct QRDetection{
+	let A:Bool
+	let B:Bool
+	let C:Bool
+	let D:Bool
+}

@@ -29,7 +29,7 @@ struct CameraView: View{
 				HStack{
 					Spacer()
 					Spacer()
-					if(cameraVM.A == true){
+					if(cameraVM.qrPreviewState?.A == true){
 						Image(systemName: "qrcode.viewfinder")
 							.font(.system(size: 50))
 							.foregroundColor(.red)
@@ -41,7 +41,7 @@ struct CameraView: View{
 							.opacity(0.4)
 					}
 					Spacer()
-					if(cameraVM.B == true){
+					if(cameraVM.qrPreviewState?.B == true){
 						Image(systemName: "qrcode.viewfinder")
 							.font(.system(size: 50))
 							.foregroundColor(.red)
@@ -60,7 +60,7 @@ struct CameraView: View{
 				HStack{
 					Spacer()
 					Spacer()
-					if(cameraVM.C == true){
+					if(cameraVM.qrPreviewState?.C == true){
 						Image(systemName: "qrcode.viewfinder")
 							.font(.system(size: 50))
 							.foregroundColor(.red)
@@ -72,7 +72,7 @@ struct CameraView: View{
 							.opacity(0.4)
 					}
 					Spacer()
-					if(cameraVM.D == true){
+					if(cameraVM.qrPreviewState?.D == true){
 						Image(systemName: "qrcode.viewfinder")
 							.font(.system(size: 50))
 							.foregroundColor(.red)

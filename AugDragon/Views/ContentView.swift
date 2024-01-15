@@ -11,6 +11,7 @@ import Vision
 struct ContentView: View {
 	@State private var orientation = UIDeviceOrientation.unknown
 	@StateObject var cameraVM = CameraViewModel()
+	@ObservedObject var arDelegate = FacePaintModel()
 	var body: some View {
 		ZStack{
 			VStack{
@@ -18,34 +19,19 @@ struct ContentView: View {
 				}.frame(maxHeight: .infinity)
 				.edgesIgnoringSafeArea(.all)
 			VStack{
-				if(cameraVM.home){
+				switch cameraVM.viewState {
+				case .showHome:
 					HomeView(cvm: cameraVM)
-				}
-				if(cameraVM.showCamera){
-					//Spacer()
+				case .showMaskView:
+					RealityView(cameraVM: cameraVM)
+				case .showCamera:
 					CameraView(cameraVM: cameraVM)
-				}
-				if(cameraVM.showPhotoPreview){
-					Spacer()
-					ZStack{
-						ProgressView()
-							.frame(width: 300, height: 300)
-							.scaleEffect(5.0)
-							.tint(.white)
-						photoCheckView(cvm:cameraVM)
-					}
-				}
-				if(cameraVM.showARView){
-					ZStack{
-						ProgressView()
-							.frame(width: 300, height: 300)
-							.scaleEffect(5.0)
-							.tint(.white)
-						RealityView(cameraVM: cameraVM)
-					}
+				case .showPhotoPreview:
+					photoCheckView(cvm:cameraVM)
+				case .showFacePaintView:
+					FacePaintViewRepresentable(arDelegate: arDelegate)
 				}
 			}
-
 		}
 	}
 }

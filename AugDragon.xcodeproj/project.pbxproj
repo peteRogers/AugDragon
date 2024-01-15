@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1DF7A92B50A09F00C0CED6 /* FacePaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1DF7A82B50A09F00C0CED6 /* FacePaintView.swift */; };
+		2F1DF7AD2B50A29A00C0CED6 /* FacePaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1DF7AC2B50A29A00C0CED6 /* FacePaintModel.swift */; };
 		2F4756DE2B2FC89400857831 /* RealityKitLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4756DD2B2FC89400857831 /* RealityKitLiveView.swift */; };
 		2F6E14FC2B2B6D8A009B6710 /* catMaskLayoutV2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */; };
 		2F6E14FE2B2B78C5009B6710 /* RealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E14FD2B2B78C5009B6710 /* RealityView.swift */; };
@@ -18,6 +20,9 @@
 		2F8A87B22B32F9BC00DA3DA4 /* ItemEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */; };
 		2FBBE8C62B1035BB00777031 /* CI_AnalyserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */; };
 		2FBBE8C82B10406400777031 /* catFace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2FBBE8C72B10406400777031 /* catFace.jpg */; };
+		2FBD2F4D2B50C259004AC58B /* imgTest2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FBD2F4C2B50C259004AC58B /* imgTest2.png */; };
+		2FBD2F512B514907004AC58B /* StateEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD2F502B514907004AC58B /* StateEnums.swift */; };
+		2FBD2F542B516570004AC58B /* ButtonMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD2F532B516570004AC58B /* ButtonMenuView.swift */; };
 		2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */; };
 		2FEC1D892AFB17F10047B439 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D882AFB17F10047B439 /* CameraView.swift */; };
 		2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D232AF3FD6000B80D62 /* AugDragonApp.swift */; };
@@ -33,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F1DF7A82B50A09F00C0CED6 /* FacePaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacePaintView.swift; sourceTree = "<group>"; };
+		2F1DF7AC2B50A29A00C0CED6 /* FacePaintModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacePaintModel.swift; sourceTree = "<group>"; };
 		2F4756DD2B2FC89400857831 /* RealityKitLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitLiveView.swift; sourceTree = "<group>"; };
 		2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catMaskLayoutV2.png; sourceTree = "<group>"; };
 		2F6E14FD2B2B78C5009B6710 /* RealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityView.swift; sourceTree = "<group>"; };
@@ -44,6 +51,9 @@
 		2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntry.swift; sourceTree = "<group>"; };
 		2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CI_AnalyserModel.swift; sourceTree = "<group>"; };
 		2FBBE8C72B10406400777031 /* catFace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = catFace.jpg; sourceTree = "<group>"; };
+		2FBD2F4C2B50C259004AC58B /* imgTest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgTest2.png; sourceTree = "<group>"; };
+		2FBD2F502B514907004AC58B /* StateEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateEnums.swift; sourceTree = "<group>"; };
+		2FBD2F532B516570004AC58B /* ButtonMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMenuView.swift; sourceTree = "<group>"; };
 		2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCheckView.swift; sourceTree = "<group>"; };
 		2FEC1D882AFB17F10047B439 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		2FFD8D202AF3FD6000B80D62 /* AugDragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugDragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +83,7 @@
 		2F1010B22B33630600505880 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FBD2F4C2B50C259004AC58B /* imgTest2.png */,
 				2F7D5AC62B0CFDCB001760FE /* catFace.usdz */,
 				2FBBE8C72B10406400777031 /* catFace.jpg */,
 				2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */,
@@ -86,6 +97,15 @@
 				2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */,
 			);
 			path = structs;
+			sourceTree = "<group>";
+		};
+		2FBD2F522B516498004AC58B /* commons */ = {
+			isa = PBXGroup;
+			children = (
+				2F1010B22B33630600505880 /* resources */,
+				2FBD2F502B514907004AC58B /* StateEnums.swift */,
+			);
+			path = commons;
 			sourceTree = "<group>";
 		};
 		2FFD8D172AF3FD6000B80D62 = {
@@ -107,7 +127,7 @@
 		2FFD8D222AF3FD6000B80D62 /* AugDragon */ = {
 			isa = PBXGroup;
 			children = (
-				2F1010B22B33630600505880 /* resources */,
+				2FBD2F522B516498004AC58B /* commons */,
 				2F8A87B02B32F90E00DA3DA4 /* structs */,
 				2FFD8D3E2AF3FFBF00B80D62 /* Views */,
 				2FFD8D312AF3FD7E00B80D62 /* Models */,
@@ -131,6 +151,7 @@
 		2FFD8D312AF3FD7E00B80D62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2F1DF7AC2B50A29A00C0CED6 /* FacePaintModel.swift */,
 				2FBBE8C52B1035BB00777031 /* CI_AnalyserModel.swift */,
 				2FFD8D372AF3FE2300B80D62 /* CameraViewModel.swift */,
 				2FFD8D322AF3FDB700B80D62 /* VisionAnalyserModel.swift */,
@@ -153,6 +174,7 @@
 				2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */,
 				2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */,
 				2F7D5AC82B0CFFCD001760FE /* RealityKitView.swift */,
+				2F1DF7A82B50A09F00C0CED6 /* FacePaintView.swift */,
 				2F4756DD2B2FC89400857831 /* RealityKitLiveView.swift */,
 			);
 			path = UIKitViews;
@@ -163,6 +185,7 @@
 			children = (
 				2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */,
 				2FFD8D3F2AF3FFD400B80D62 /* ContentView.swift */,
+				2FBD2F532B516570004AC58B /* ButtonMenuView.swift */,
 				2F8A87AC2B32EB3500DA3DA4 /* ItemView.swift */,
 				2FEC1D882AFB17F10047B439 /* CameraView.swift */,
 				2F6E14FD2B2B78C5009B6710 /* RealityView.swift */,
@@ -230,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBD2F4D2B50C259004AC58B /* imgTest2.png in Resources */,
 				2FFD8D2B2AF3FD6200B80D62 /* Preview Assets.xcassets in Resources */,
 				2F6E14FC2B2B6D8A009B6710 /* catMaskLayoutV2.png in Resources */,
 				2FBBE8C82B10406400777031 /* catFace.jpg in Resources */,
@@ -253,13 +277,17 @@
 				2F8A87AF2B32EBCA00DA3DA4 /* HomeView.swift in Sources */,
 				2F4756DE2B2FC89400857831 /* RealityKitLiveView.swift in Sources */,
 				2FFD8D402AF3FFD400B80D62 /* ContentView.swift in Sources */,
+				2F1DF7A92B50A09F00C0CED6 /* FacePaintView.swift in Sources */,
 				2FFD8D3B2AF3FF5700B80D62 /* CameraPreview.swift in Sources */,
 				2FBBE8C62B1035BB00777031 /* CI_AnalyserModel.swift in Sources */,
 				2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */,
 				2FEC1D892AFB17F10047B439 /* CameraView.swift in Sources */,
 				2FFD8D3D2AF3FF5F00B80D62 /* CameraViewController.swift in Sources */,
 				2F8A87B22B32F9BC00DA3DA4 /* ItemEntry.swift in Sources */,
+				2FBD2F542B516570004AC58B /* ButtonMenuView.swift in Sources */,
 				2F7D5AC92B0CFFCD001760FE /* RealityKitView.swift in Sources */,
+				2F1DF7AD2B50A29A00C0CED6 /* FacePaintModel.swift in Sources */,
+				2FBD2F512B514907004AC58B /* StateEnums.swift in Sources */,
 				2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */,
 				2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */,
 				2FFD8D422AF3FFFA00B80D62 /* CameraViewRepresentable.swift in Sources */,

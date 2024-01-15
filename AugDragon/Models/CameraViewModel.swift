@@ -16,22 +16,16 @@ import UIKit
 	
 	//@Published var qrcode:[VNBarcodeObservation] = []
 	//@Published var drawingDetected = false // 4 qrcodes counted
-	@Published var showCamera = true
-	@Published var showPhotoPreview = false
-	@Published var home = false
-	@Published var showARView = false
+
+	@Published var viewState = ViewState.showPhotoPreview
 	@Published var capturedPhotoPreview:UIImage?
-	@Published var A = false
-	@Published var B = false
-	@Published var C = false
-	@Published var D = false
+	@Published var qrPreviewState:QRDetection?
 	@Published var savedArray:[ItemEntry] = []
 	var takePhotoCaller: (() -> Void)?
 	
 	func callTakePhotoFunctionInUIKIT() {
 		takePhotoCaller?()
-		self.showCamera = false
-		self.showPhotoPreview = true
+		self.viewState = .showPhotoPreview
 	}
 	
 	func tryToSaveMask(){
@@ -92,10 +86,11 @@ import UIKit
 				DispatchQueue.main.async { [self] in
 					do{
 						let vn:[VNBarcodeObservation] = try visionAnalyser.analyseQRCodes(sample: sample)
-						self.A = (checkCodeFound(search: "A", array: vn))
-						self.B = (checkCodeFound(search: "B", array: vn))
-						self.C = (checkCodeFound(search: "C", array: vn))
-						self.D = (checkCodeFound(search: "D", array: vn))
+						let a = (checkCodeFound(search: "A", array: vn))
+						let b = (checkCodeFound(search: "B", array: vn))
+						let c = (checkCodeFound(search: "C", array: vn))
+						let d = (checkCodeFound(search: "D", array: vn))
+						qrPreviewState = QRDetection(A: a, B: b, C: c, D: d)
 					}catch{
 						print(error)
 					}

@@ -12,23 +12,31 @@ struct HomeView: View{
 	@ObservedObject var cvm:CameraViewModel
 	var body: some View{
 		VStack{
-			List{
-				GeometryReader { geometry in
-					ItemView(item: ItemEntry(title: "test", imageURL: URL(string: "foof")!, date: Date.now, id: UUID())).frame(minHeight: geometry.size.height)
-				}.listRowInsets(EdgeInsets())
+			Text("Saved Mats")
+				.font(.largeTitle)
+				.padding(.top)
+				.foregroundColor(.lighttext)
+		
 				
+			GeometryReader { proxy in
+				VStack{
+
+					MaskEntry(cvm: cvm)
+					.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:proxy.size.width/3)
+					.padding(.horizontal, 10)
+					.padding(.bottom, 10)
+					
+					MaskEntry(cvm: cvm)
+					.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:proxy.size.width/3)
+					.padding(.horizontal, 10)
+					.padding(.bottom, 10)
+					
+					
+					
+				}
 			}
 			
-//			Button(action: {
-//				cvm.home = false
-//				cvm.showPhotoPreview = true
-//			}) {
-//				Image(systemName: "arrow.up.left.and.arrow.down.right")
-//					.font(.system(size:40))
-//					.foregroundColor(.red)
-//					.background(Color.white.opacity(0.3))
-//					.cornerRadius(15)
-//			}.padding()
+			ButtonMenuView(cvm: cvm)
 		}
 	}
 }
@@ -70,6 +78,6 @@ struct TView: View{
 			struct ItemView_Previews: PreviewProvider {
 				static var previews: some View {
 					//HomeView(cvm:CameraViewModel())
-					TView()
+					HomeView(cvm: CameraViewModel())
 				}
 			}
