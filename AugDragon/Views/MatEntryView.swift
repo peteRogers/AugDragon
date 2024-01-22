@@ -8,34 +8,33 @@
 import Foundation
 import SwiftUI
 
-
-
-struct ItemView: View{
-	let item:ItemEntry
+struct MatEntryView: View{
+	
+	let s = "gorjgojg rjgo rgojrg oj groj gro groj gro. cr r r vrk vrkv rkv r rrngornv rvonrvomov rvorm"
 	var body: some View {
 		GeometryReader { proxy in
 			ZStack {
 				RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
 				HStack{
 					RoundedRectangle(cornerRadius: 20)
-						.frame(width: .infinity)
+						.frame(minWidth: 0.0, maxWidth: .infinity)
 						.aspectRatio(1, contentMode: .fit)
-						.foregroundColor(.red)
+						.foregroundColor(.itembackgrounds)
 						.padding(.leading,10)
 						.padding(.vertical,10)
 						.padding(.trailing, 0)
 					VStack{
 						Text("My title")
 							.fontDesign(.rounded)
-							.fontWeight(.semibold)
+							.fontWeight(.bold)
 							
 							.frame( maxWidth: .infinity, alignment: .leading)
 							
-							.foregroundColor(.white)
-						Text("tersting")
+							.foregroundColor(.lighttext)
+						Text(s)
 							.fontDesign(.rounded)
-							.fontWeight(.thin)
-							.foregroundColor(.white)
+							.fontWeight(.regular)
+							.foregroundColor(.lighttext)
 							.frame( maxWidth: .infinity, alignment: .leading)
 						
 							
@@ -51,8 +50,10 @@ struct ItemView: View{
 	}
 }
 
-struct ItemViewtView_Previews: PreviewProvider {
-	static var previews: some View {
-		ItemView(item: ItemEntry(title: "fokfoef", imageURL: URL(string: "foof")!, date: Date.now, id: UUID()))
-	}
-}
+
+//
+//struct ItemViewtView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		ItemView(item: ItemEntry(title: "fokfoef", imageURL: URL(string: "foof")!, date: Date.now, id: UUID()))
+//	}
+//}

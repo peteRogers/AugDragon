@@ -27,7 +27,7 @@ final class CameraViewController: UIViewController {
 				cameraView.previewLayer.session = cameraFeedSession
 				cameraView.previewLayer.videoGravity = .resizeAspect
 			}
-			DispatchQueue.global(qos: .userInitiated).async{
+			DispatchQueue.global(qos: .userInteractive).async{
 				self.cameraFeedSession?.startRunning()
 			}
 		} catch {
@@ -83,9 +83,14 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate,AVC
 	}
 	
 	func capturePhoto() {
+		
 		let photoSettings = AVCapturePhotoSettings()
 		photoOutput.capturePhoto(with: photoSettings, delegate: self)
 		print("taken photo")
+//		if(cameraFeedSession != nil){
+//			cameraFeedSession?.stopRunning()
+//		}
+		
 	}
 	
 	func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

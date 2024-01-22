@@ -16,15 +16,15 @@ struct ButtonMenuView: View{
 				Button(action: {
 					cvm.viewState = .showCamera
 				}) {
-					Image(systemName: "person.fill.badge.plus")
+					Image(systemName: "person.crop.rectangle.badge.plus")
 						.font(.system(size:50))
 						.foregroundColor(.buttonscolor)
 					
 				}.padding()
 				Button(action: {
-					cvm.viewState = .showCamera
+					cvm.viewState = .showInstructions
 				}) {
-					Image(systemName: "info.square")
+					Image(systemName: "signpost.right.and.left")
 						.font(.system(size:50))
 						.foregroundColor(.buttonscolor)
 				}.padding()
@@ -48,9 +48,10 @@ struct ButtonMenuView: View{
 				}
 				Spacer()
 				Button(action: {
-					#warning("This needs to be encapsulated inside viewModel")
-					cvm.viewState = .showMaskView
-					cvm.tryToSaveMask()
+					cvm.showProgress = true
+					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+						cvm.viewState = .showMaskView
+					}
 				}) {
 					Image(systemName: "arrow.up.heart")
 						.font(.system(size: 50))
@@ -59,9 +60,13 @@ struct ButtonMenuView: View{
 				Spacer()
 			
 			}
-			if(cvm.viewState == .showMaskView){
+			if (cvm.viewState == .showMaskView ||
+				cvm.viewState == .showInstructions ||
+				cvm.viewState == .showCamera)
+			{
 				Spacer()
 				Button(action: {
+					
 					cvm.viewState = .showHome
 				}) {
 					Image(systemName: "arrow.left.circle")

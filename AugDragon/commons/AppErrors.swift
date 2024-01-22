@@ -6,3 +6,27 @@
 //
 
 import Foundation
+
+enum QRCodeError: Error {
+	case noneFound
+	case notAllFound
+	case perspectiveError
+}
+
+enum CIFilterError: Error {
+	case errorCompleting
+	case transformFailure
+	case vibrancyError
+}
+
+enum RealityError: Error {
+	case modelLoadingError
+	
+}
+
+enum SavingError: Error {
+	case noSavePNG
+	case imageDataError
+	case urlNotCreated
+	case matUnableToBeCreatedError
+}

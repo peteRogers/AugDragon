@@ -13,66 +13,65 @@ import UIKit
 @MainActor class CameraViewModel: ObservableObject{
 	
 	let visionAnalyser = VisionAnalyserModel()
-	
-	//@Published var qrcode:[VNBarcodeObservation] = []
-	//@Published var drawingDetected = false // 4 qrcodes counted
-
 	@Published var viewState = ViewState.showPhotoPreview
 	@Published var capturedPhotoPreview:UIImage?
 	@Published var qrPreviewState:QRDetection?
 	@Published var savedArray:[ItemEntry] = []
 	var takePhotoCaller: (() -> Void)?
+	@Published var showProgress = false
 	
 	func callTakePhotoFunctionInUIKIT() {
 		takePhotoCaller?()
 		self.viewState = .showPhotoPreview
 	}
+//	
+//	func tryToSaveMask(){
+//		do{
+//			try saveMask()
+//		}catch{
+//			print(error)
+//			//do stuff here that handles mask cannot be saved
+//		}
+//	}
 	
-	func tryToSaveMask(){
-		do{
-			try saveMask()
-		}catch{
-			print(error)
-			//do stuff here that handles mask cannot be saved
-		}
-	}
+//
+//	func launchRealityView(){
+//		showProgress = true
+////		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//			self.viewState = .showMaskView
+////		}
+//	
+//		
+//		DispatchQueue.main.async {
+//			do{
+//				try self.saveMask()
+//			}catch{
+//				print(error)
+//				//do stuff here that handles mask cannot be saved
+//			}
+//		}
+//	}
 	
-	func saveMask() throws{
-		if let cpp = capturedPhotoPreview{
-			guard let imageData = cpp.jpegData(compressionQuality: 1.0) else {
-				throw SavingError.noSaveJPG
-			}
-			// Get the document directory URL
-			if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-				// Append the file name to the document directory
-				let fileURL = documentsDirectory.appendingPathComponent("save as date")
-				do {
-					// Write the data to the file
-					try imageData.write(to: fileURL)
-					let m = ItemEntry(title: "tititititle", imageURL: fileURL, date: Date.now, id: UUID())
-					//let m = ItemEntry(title: "tititititle", imageURL: fileURL, date: Date.now, id: UUID())
-					savedArray.append(m)
-					savedArray.append(m)
-				} catch {
-					print("Error saving image: \(error)")
-					throw SavingError.noSaveJPG
-				}
-			}
-		}
-	}
 	
 	var rawPhoto:CGImage?{
 		willSet{
-			print("from will set")
+			capturedPhotoPreview = nil
 		}
 		didSet{
 			if let img = rawPhoto{
-				capturedPhotoPreview = UIImage(cgImage: img, scale: 1.0, orientation: .right)
-				let ci = CI_AnalyserModel()
+				let visionAnalyser = VisionAnalyserModel()
 				do{
-					//print("w: \(img.width) h: \(img.height)")
-					let im = try ci.analyseImage(cImage: CIImage(cgImage: img))
-					capturedPhotoPreview = im
+					let visionCodes = try visionAnalyser.getQRCodesFromImage(img: img)
+					let extractedCorners = try visionAnalyser.getCroppedBoundary(codeList: visionCodes)
+					let croppedImage = try 
+					visionAnalyser.correctPerspective(for: CIImage(cgImage: img),
+									topLeft: extractedCorners.0,
+									topRight: extractedCorners.1,
+									bottomLeft: extractedCorners.2,
+									bottomRight: extractedCorners.3)
+					if let uimage = try visionAnalyser.completeImage(for: croppedImage!){
+						capturedPhotoPreview = uimage
+					}
 				}catch{
 					print(error)
 				}
@@ -85,7 +84,7 @@ import UIKit
 			if let sample = sampleBuffer{
 				DispatchQueue.main.async { [self] in
 					do{
-						let vn:[VNBarcodeObservation] = try visionAnalyser.analyseQRCodes(sample: sample)
+						let vn:[VNBarcodeObservation] = try visionAnalyser.QRCodesFromSample(sample: sample)
 						let a = (checkCodeFound(search: "A", array: vn))
 						let b = (checkCodeFound(search: "B", array: vn))
 						let c = (checkCodeFound(search: "C", array: vn))
@@ -100,14 +99,9 @@ import UIKit
 	}
 	
 	private func checkCodeFound(search:String, array:[VNBarcodeObservation]) -> Bool{
-		if let matchedObservation = array.first(where: { $0.payloadStringValue == search }) {
-			// matchedObservation contains the first VNBarcodeObservation where payloadString matches 'x'
-			//print(matchedObservation)
-			print(matchedObservation.debugDescription)
+		if let _ = array.first(where: { $0.payloadStringValue == search }) {
 			return true
 		} else {
-			// No match found
-			//print("No match found")
 			return false
 		}
 	}

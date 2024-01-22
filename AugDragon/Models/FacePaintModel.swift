@@ -19,7 +19,6 @@ class FacePaintModel: NSObject, ARSCNViewDelegate, ObservableObject, ARSessionDe
 		
 		self.arView = arView
 		arView.delegate = self
-		
 		//arView.session.delegate = self
 		arView.automaticallyUpdatesLighting = true
 		arView.scene = SCNScene()

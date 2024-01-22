@@ -23,35 +23,40 @@ struct ContentView: View {
 				case .showHome:
 					HomeView(cvm: cameraVM)
 				case .showMaskView:
-					RealityView(cameraVM: cameraVM)
+					RealityView(cameraVM: cameraVM)		
 				case .showCamera:
 					CameraView(cameraVM: cameraVM)
 				case .showPhotoPreview:
 					photoCheckView(cvm:cameraVM)
 				case .showFacePaintView:
 					FacePaintViewRepresentable(arDelegate: arDelegate)
+				case .showInstructions:
+					InstructionsView(cvm:cameraVM)
 				}
+			}
+			if(cameraVM.showProgress == true){
+				ActivityView()
 			}
 		}
 	}
 }
 
-struct DeviceRotationViewModifier: ViewModifier {
-	let action: (UIDeviceOrientation) -> Void
-	func body(content: Content) -> some View {content
-		.onAppear()
-		.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-			action(UIDevice.current.orientation)
-		}
-	}
-}
-
-extension View {
-	func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
-		self.modifier(DeviceRotationViewModifier(action: action))
-	}
-}
-
+//struct DeviceRotationViewModifier: ViewModifier {
+//	let action: (UIDeviceOrientation) -> Void
+//	func body(content: Content) -> some View {content
+//		.onAppear()
+//		.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+//			action(UIDevice.current.orientation)
+//		}
+//	}
+//}
+//
+//extension View {
+//	func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
+//		self.modifier(DeviceRotationViewModifier(action: action))
+//	}
+//}
+//
 
 
 struct ContentView_Previews: PreviewProvider {

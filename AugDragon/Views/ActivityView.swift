@@ -6,3 +6,35 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct ActivityView: View{
+	
+	@State var degreesRotating = 0.0
+	@State var animationCount = 2.0
+	@State var bounceMe = true
+	var body: some View{
+		VStack{
+			Image(systemName: "fireworks")
+				.font(.system(size: 80))
+				.foregroundStyle(.buttonscolor, .itembackgrounds)
+				.symbolEffect(.bounce, options: .speed(1).repeating, value: bounceMe)
+				.symbolEffect(.variableColor.iterative, options: .repeating, value: bounceMe)
+				.rotationEffect(.degrees(degreesRotating))
+				.onAppear {
+					withAnimation(.linear(duration: 4)
+						.speed(1).repeatForever(autoreverses: false)) {
+							degreesRotating = 360.0
+							
+						}
+					bounceMe.toggle()
+				}
+		}
+	}
+	
+}
+#Preview {
+	
+	ActivityView()
+	
+}
