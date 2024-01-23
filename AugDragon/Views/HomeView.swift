@@ -20,19 +20,12 @@ struct HomeView: View{
 				
 			GeometryReader { proxy in
 				VStack{
-
-					MatEntryView()
-					.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:proxy.size.width/3)
-					.padding(.horizontal, 10)
-					.padding(.bottom, 10)
-					
-					MatEntryView()
-					.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:proxy.size.width/3)
-					.padding(.horizontal, 10)
-					.padding(.bottom, 10)
-					
-					
-					
+					ForEach(cvm.savedMats, id: \.id) { mat in
+						MatEntryView(mat: mat, cvm: cvm)
+						.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:proxy.size.width/3)
+						.padding(.horizontal, 10)
+						.padding(.bottom, 10)
+					}
 				}
 			}
 			Spacer()

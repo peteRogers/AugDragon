@@ -13,7 +13,6 @@ import CoreImage
 import UIKit
 
 class VisionAnalyserModel{
-	
 	func QRCodesFromSample(sample:CMSampleBuffer) throws -> [VNBarcodeObservation]{
 		let barcodeRequest = VNDetectBarcodesRequest()
 		barcodeRequest.symbologies = [.qr]

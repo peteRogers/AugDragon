@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct ActivityView: View{
-	
 	@State var degreesRotating = 0.0
 	@State var animationCount = 2.0
 	@State var bounceMe = true
@@ -25,14 +24,13 @@ struct ActivityView: View{
 					withAnimation(.linear(duration: 4)
 						.speed(1).repeatForever(autoreverses: false)) {
 							degreesRotating = 360.0
-							
 						}
 					bounceMe.toggle()
 				}
 		}
 	}
-	
 }
+
 #Preview {
 	
 	ActivityView()

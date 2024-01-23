@@ -20,8 +20,6 @@ struct CameraView: View{
 				}.frame(maxHeight: .infinity)
 					.edgesIgnoringSafeArea(.all)
 				VStack{
-					//Rectangle().foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-					
 					CameraViewRepresentable(model: cameraVM){
 						cameraVM.sampleBuffer = $0
 					}.frame(height: geo.size.height * 0.70)
@@ -31,16 +29,10 @@ struct CameraView: View{
 						// Action to perform when the button is tapped
 						cameraVM.showProgress = true
 						cameraVM.callTakePhotoFunctionInUIKIT()
-						
-						
-						
 					}) {
 						Image(systemName: "record.circle")
 							.font(.system(size: geo.size.height * 0.1))
 							.foregroundColor(.itembackgrounds)
-							
-						
-						
 					}.padding(.top,0)
 					Spacer()
 					ButtonMenuView(cvm: cameraVM)

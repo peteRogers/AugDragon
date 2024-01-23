@@ -15,6 +15,7 @@ struct CameraViewRepresentable: UIViewControllerRepresentable {
 	
 	func makeUIViewController(context: Context) -> CameraViewController {
 		let cvc = CameraViewController()
+		
 		cvc.sample = sampleBuffer
 		context.coordinator.setupFunctionCaller(viewController: cvc)
 		cvc.coordinator = context.coordinator

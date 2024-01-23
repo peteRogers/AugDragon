@@ -32,7 +32,6 @@ struct photoCheckView: View{
 								}
 							Spacer()
 						}
-						
 					}
 				}
 				Spacer()

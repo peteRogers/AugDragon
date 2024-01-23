@@ -10,6 +10,6 @@ import Foundation
 
 enum ViewState {
 	case showCamera, showPhotoPreview, showHome,
-		 showMaskView, showFacePaintView, showInstructions
+		 showMaskView, showFacePaintView, showInstructions, showLoading
 }
 

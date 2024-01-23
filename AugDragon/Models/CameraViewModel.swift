@@ -16,41 +16,37 @@ import UIKit
 	@Published var viewState = ViewState.showPhotoPreview
 	@Published var capturedPhotoPreview:UIImage?
 	@Published var qrPreviewState:QRDetection?
-	@Published var savedArray:[ItemEntry] = []
+	@Published var savedMats:[Mat] = []
 	var takePhotoCaller: (() -> Void)?
 	@Published var showProgress = false
+	var currentMat:Mat?
 	
 	func callTakePhotoFunctionInUIKIT() {
 		takePhotoCaller?()
 		self.viewState = .showPhotoPreview
 	}
-//	
-//	func tryToSaveMask(){
-//		do{
-//			try saveMask()
-//		}catch{
-//			print(error)
-//			//do stuff here that handles mask cannot be saved
-//		}
-//	}
+
+	init(){
+		print("started init")
+		
+		Task{
+			do{
+				let img = UIImage(named: "catMaskLayoutV2.png")
+				let m1 = try await Mat(image: img!, type: "Sample1")
+				savedMats.append(m1)
+				let m2 = try await Mat(image: img!, type: "Sample2")
+				savedMats.append(m2)
+			}catch{
+				
+			}
+		}
+	}
 	
-//
-//	func launchRealityView(){
-//		showProgress = true
-////		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//			self.viewState = .showMaskView
-////		}
-//	
-//		
-//		DispatchQueue.main.async {
-//			do{
-//				try self.saveMask()
-//			}catch{
-//				print(error)
-//				//do stuff here that handles mask cannot be saved
-//			}
-//		}
-//	}
+	
+	func openMat(mat:Mat){
+		currentMat = mat
+		viewState = .showMaskView
+	}
 	
 	
 	var rawPhoto:CGImage?{
@@ -106,26 +102,7 @@ import UIKit
 		}
 	}
 	
-	func saveImageAndGetURL(image: UIImage, fileName: String) -> URL? {
-		// Convert UIImage to Data
-		guard let imageData = image.jpegData(compressionQuality: 1.0) else {
-			return nil
-		}
-		// Get the document directory URL
-		if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-			// Append the file name to the document directory
-			let fileURL = documentsDirectory.appendingPathComponent(fileName)
-			do {
-				// Write the data to the file
-				try imageData.write(to: fileURL)
-				return fileURL
-			} catch {
-				print("Error saving image: \(error)")
-				return nil
-			}
-		}
-		return nil
-	}	
+	
 	
 	func UIImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> UIImage? {
 		let ciImage = CIImage(cvPixelBuffer: pixelBuffer)

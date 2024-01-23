@@ -12,10 +12,7 @@ struct RealityView: View{
 	@ObservedObject var cameraVM:CameraViewModel
 	var body: some View{
 	VStack{
-		RealityKitLiveView(model: cameraVM).onAppear(){
-			cameraVM.showProgress = false
-			print("RKLV appeared")
-		}
+			RealityKitLiveViewRepresentable(mat: cameraVM.currentMat!, showProgress: $cameraVM.showProgress)
 			ButtonMenuView(cvm: cameraVM)
 		}
 	}

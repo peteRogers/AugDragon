@@ -13,7 +13,7 @@ struct InstructionsView: View{
 	@ObservedObject var cvm:CameraViewModel
 	
 	var body: some View{
-		var player = AVPlayer()
+		let player = AVPlayer()
 		ZStack{
 			VStack{
 				Rectangle()

@@ -42,16 +42,13 @@ struct Mat: Codable, Identifiable{
 		self.id = UUID()
 		self.date = Date.now
 		self.type = type
-		//self.linkToImage = URL(string: "")!
 		do{
 			if let url = try await saveImage(filename: self.id.uuidString, img: image){
 				self.linkToImage =  url
 			}
-			
 		}catch{
 			throw SavingError.matUnableToBeCreatedError
 		}
-
 	}
 	
 	mutating func changeImageSettings(settings: ImgSettings){

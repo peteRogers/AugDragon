@@ -23,7 +23,10 @@ struct ContentView: View {
 				case .showHome:
 					HomeView(cvm: cameraVM)
 				case .showMaskView:
-					RealityView(cameraVM: cameraVM)		
+					RealityView(cameraVM: cameraVM)
+						.onDisappear(perform: {
+							print("feefoo")
+						})
 				case .showCamera:
 					CameraView(cameraVM: cameraVM)
 				case .showPhotoPreview:
@@ -32,7 +35,10 @@ struct ContentView: View {
 					FacePaintViewRepresentable(arDelegate: arDelegate)
 				case .showInstructions:
 					InstructionsView(cvm:cameraVM)
+				case .showLoading:
+					Rectangle()
 				}
+			
 			}
 			if(cameraVM.showProgress == true){
 				ActivityView()
@@ -41,22 +47,6 @@ struct ContentView: View {
 	}
 }
 
-//struct DeviceRotationViewModifier: ViewModifier {
-//	let action: (UIDeviceOrientation) -> Void
-//	func body(content: Content) -> some View {content
-//		.onAppear()
-//		.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-//			action(UIDevice.current.orientation)
-//		}
-//	}
-//}
-//
-//extension View {
-//	func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
-//		self.modifier(DeviceRotationViewModifier(action: action))
-//	}
-//}
-//
 
 
 struct ContentView_Previews: PreviewProvider {
