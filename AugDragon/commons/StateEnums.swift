@@ -10,6 +10,11 @@ import Foundation
 
 enum ViewState {
 	case showCamera, showPhotoPreview, showHome,
-		 showMaskView, showFacePaintView, showInstructions, showLoading
+		 showMaskView, showFacePaintView, showInstructions, showLoading, showPhotoSettings
+}
+
+enum MatType: String, Decodable, Encodable {
+	case catMask = "Cat Mask",
+		 facePaint = "Face Paint"
 }
 

@@ -18,6 +18,7 @@ struct ContentView: View {
 				Rectangle()
 				}.frame(maxHeight: .infinity)
 				.edgesIgnoringSafeArea(.all)
+				
 			VStack{
 				switch cameraVM.viewState {
 				case .showHome:
@@ -25,7 +26,7 @@ struct ContentView: View {
 				case .showMaskView:
 					RealityView(cameraVM: cameraVM)
 						.onDisappear(perform: {
-							print("feefoo")
+							
 						})
 				case .showCamera:
 					CameraView(cameraVM: cameraVM)
@@ -37,8 +38,12 @@ struct ContentView: View {
 					InstructionsView(cvm:cameraVM)
 				case .showLoading:
 					Rectangle()
+				case .showPhotoSettings:
+					photoCheckView(cvm:cameraVM)
+					
 				}
-			
+				Spacer()
+				ButtonMenuView(cvm: cameraVM)
 			}
 			if(cameraVM.showProgress == true){
 				ActivityView()

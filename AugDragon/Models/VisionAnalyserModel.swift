@@ -37,16 +37,16 @@ class VisionAnalyserModel{
 	
 	func getCroppedBoundary(codeList: [VNBarcodeObservation])throws -> (CGPoint, CGPoint, CGPoint, CGPoint){
 		guard let codeA = getQRFromSearch(search: "A", array: codeList) else {
-			throw QRCodeError.noneFound
+			throw QRCodeError.unableToCropQRMissing
 		}
 		guard let codeB = getQRFromSearch(search: "B", array: codeList) else {
-			throw QRCodeError.noneFound
+			throw QRCodeError.unableToCropQRMissing
 		}
 		guard let codeC = getQRFromSearch(search: "C", array: codeList) else {
-			throw QRCodeError.noneFound
+			throw QRCodeError.unableToCropQRMissing
 		}
 		guard let codeD = getQRFromSearch(search: "D", array: codeList) else {
-			throw QRCodeError.noneFound
+			throw QRCodeError.unableToCropQRMissing
 		}
 		return (CGPoint(x:codeA.boundingBox.midX, y:codeA.boundingBox.midY),
 				CGPoint(x:codeB.boundingBox.midX, y:codeB.boundingBox.midY),

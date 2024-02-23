@@ -20,7 +20,6 @@ struct InstructionsView: View{
 			}.frame(maxHeight: .infinity)
 				.edgesIgnoringSafeArea(.all)
 			VStack{
-				
 				VideoPlayer(player: player)
 					.frame(height: 400)
 					.onAppear{
@@ -32,9 +31,7 @@ struct InstructionsView: View{
 							player.play()
 							
 						})
-					}
-				Spacer()
-				ButtonMenuView(cvm: cvm)
+				}
 			}
 		}
 	}

@@ -16,6 +16,8 @@ struct MatEntryView: View{
 		GeometryReader { proxy in
 			ZStack {
 				RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+					.foregroundColor(.lowLighter)
+					
 				HStack{
 					//RoundedRectangle(cornerRadius: 20)
 					Button {
@@ -25,8 +27,6 @@ struct MatEntryView: View{
 						DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 							cvm.openMat(mat: mat)
 						}
-						
-						
 					} label: {
 						AsyncImage(url: mat.linkToImage)
 						{ phase in
@@ -44,13 +44,14 @@ struct MatEntryView: View{
 							@unknown default:
 								EmptyView()
 							}
-						}.frame(minWidth: 0.0,  maxWidth:proxy.size.height * 0.9,
+						}.frame(minWidth: 0.0,  //maxWidth:proxy.size.height * 0.9,
 								maxHeight:proxy.size.height * 0.9)
 						.aspectRatio(1, contentMode: .fit)
 						.cornerRadius(20)
+						.padding(.leading, 5)
 					}
 					VStack{
-						Text(mat.type)
+						Text(mat.type.rawValue)
 							.fontDesign(.rounded)
 							.fontWeight(.bold)							
 							.frame( maxWidth: .infinity, alignment: .leading)
@@ -67,7 +68,7 @@ struct MatEntryView: View{
 						.padding(.top, 10)
 				}
 			}
-		}
+		}.padding(0)
 	}
 }
 

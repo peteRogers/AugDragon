@@ -13,7 +13,6 @@ struct RealityView: View{
 	var body: some View{
 	VStack{
 			RealityKitLiveViewRepresentable(mat: cameraVM.currentMat!, showProgress: $cameraVM.showProgress)
-			ButtonMenuView(cvm: cameraVM)
 		}
 	}
 }

@@ -13,7 +13,7 @@ import UIKit
 @MainActor class CameraViewModel: ObservableObject{
 	
 	let visionAnalyser = VisionAnalyserModel()
-	@Published var viewState = ViewState.showPhotoPreview
+	@Published var viewState = ViewState.showHome
 	@Published var capturedPhotoPreview:UIImage?
 	@Published var qrPreviewState:QRDetection?
 	@Published var savedMats:[Mat] = []
@@ -27,14 +27,12 @@ import UIKit
 	}
 
 	init(){
-		print("started init")
-		
 		Task{
 			do{
 				let img = UIImage(named: "catMaskLayoutV2.png")
-				let m1 = try await Mat(image: img!, type: "Sample1")
+				let m1 = try await Mat(image: img!, type: .catMask)
 				savedMats.append(m1)
-				let m2 = try await Mat(image: img!, type: "Sample2")
+				let m2 = try await Mat(image: img!, type: .catMask)
 				savedMats.append(m2)
 			}catch{
 				
@@ -69,7 +67,27 @@ import UIKit
 						capturedPhotoPreview = uimage
 					}
 				}catch{
+					print("I have a big error here")
 					print(error)
+					capturedPhotoPreview = UIImage(cgImage: img)
+				}
+			}
+		}
+	}
+	
+	func saveMat(){
+		Task{
+			if capturedPhotoPreview != nil{
+				do{
+					let m1 = try await Mat(image: capturedPhotoPreview!, type: .catMask)
+					savedMats.append(m1)
+					currentMat = m1
+					if(m1.type == .catMask){
+						viewState = .showMaskView
+					}
+					
+				}catch{
+					print("cannot save for some reason")
 				}
 			}
 		}
@@ -101,7 +119,6 @@ import UIKit
 			return false
 		}
 	}
-	
 	
 	
 	func UIImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> UIImage? {

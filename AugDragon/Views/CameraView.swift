@@ -20,10 +20,11 @@ struct CameraView: View{
 				}.frame(maxHeight: .infinity)
 					.edgesIgnoringSafeArea(.all)
 				VStack{
+					Spacer()
 					CameraViewRepresentable(model: cameraVM){
 						cameraVM.sampleBuffer = $0
 					}.frame(height: geo.size.height * 0.70)
-					 .padding(.top, 20)
+						.padding(.top, 20)
 					
 					Button(action: {
 						// Action to perform when the button is tapped
@@ -32,29 +33,20 @@ struct CameraView: View{
 					}) {
 						Image(systemName: "record.circle")
 							.font(.system(size: geo.size.height * 0.1))
-							.foregroundColor(.itembackgrounds)
+							.foregroundColor(.highLighter)
 					}.padding(.top,0)
 					Spacer()
-					ButtonMenuView(cvm: cameraVM)
-						
 				}
-					
-					
-					
-				}
+			}
+			VStack{
+				Spacer()
+				QRPreviewView(cameraVM: cameraVM)
+				Spacer()
 				
-				
-				VStack{
-					Spacer()
-					
-				}
 			}
 		}
 	}
-//	func mapper( x: CGFloat, in_min:CGFloat ,in_max:CGFloat, out_min:CGFloat, out_max:CGFloat)->CGFloat
-//	{
-//		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-//	}
+}
 
 
 
@@ -70,24 +62,24 @@ struct QRPreviewView : View{
 				if(cameraVM.qrPreviewState?.A == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.buttonscolor)
+						.foregroundColor(.highLighter)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.itembackgrounds)
+						.foregroundColor(.lowLighter)
 						.opacity(0.4)
 				}
 				Spacer()
 				if(cameraVM.qrPreviewState?.B == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.buttonscolor)
+						.foregroundColor(.highLighter)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.itembackgrounds)
+						.foregroundColor(.lowLighter)
 						.opacity(0.4)
 				}
 				Spacer()
@@ -101,24 +93,24 @@ struct QRPreviewView : View{
 				if(cameraVM.qrPreviewState?.C == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.buttonscolor)
+						.foregroundColor(.highLighter)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.itembackgrounds)
+						.foregroundColor(.lowLighter)
 						.opacity(0.4)
 				}
 				Spacer()
 				if(cameraVM.qrPreviewState?.D == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.buttonscolor)
+						.foregroundColor(.highLighter)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.itembackgrounds)
+						.foregroundColor(.lowLighter)
 						.opacity(0.4)
 				}
 				Spacer()

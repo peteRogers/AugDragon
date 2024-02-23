@@ -16,7 +16,7 @@ struct ActivityView: View{
 		VStack{
 			Image(systemName: "fireworks")
 				.font(.system(size: 80))
-				.foregroundStyle(.buttonscolor, .itembackgrounds)
+				.foregroundStyle(.lowLighter, .highLighter)
 				.symbolEffect(.bounce, options: .speed(1).repeating, value: bounceMe)
 				.symbolEffect(.variableColor.iterative, options: .repeating, value: bounceMe)
 				.rotationEffect(.degrees(degreesRotating))
@@ -24,9 +24,9 @@ struct ActivityView: View{
 					withAnimation(.linear(duration: 4)
 						.speed(1).repeatForever(autoreverses: false)) {
 							degreesRotating = 360.0
-						}
-					bounceMe.toggle()
-				}
+					}
+				bounceMe.toggle()
+			}
 		}
 	}
 }

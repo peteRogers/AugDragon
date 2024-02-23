@@ -35,10 +35,10 @@ struct Mat: Codable, Identifiable{
 	let id: UUID
 	private (set) var imgSettings: ImgSettings?
 	var linkToImage: URL?
-	let type: String
+	let type: MatType
 	let date: Date
 	
-	init(image:UIImage, type:String ) async throws{
+	init(image:UIImage, type:MatType ) async throws{
 		self.id = UUID()
 		self.date = Date.now
 		self.type = type

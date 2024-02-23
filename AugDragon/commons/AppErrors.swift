@@ -8,6 +8,7 @@
 import Foundation
 
 enum QRCodeError: Error {
+	case unableToCropQRMissing
 	case noneFound
 	case notAllFound
 	case perspectiveError
