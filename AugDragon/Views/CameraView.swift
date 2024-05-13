@@ -19,6 +19,7 @@ struct CameraView: View{
 					Rectangle()
 				}.frame(maxHeight: .infinity)
 					.edgesIgnoringSafeArea(.all)
+					.foregroundColor(.specA)
 				VStack{
 					Spacer()
 					CameraViewRepresentable(model: cameraVM){
@@ -26,15 +27,7 @@ struct CameraView: View{
 					}.frame(height: geo.size.height * 0.70)
 						.padding(.top, 20)
 					
-					Button(action: {
-						// Action to perform when the button is tapped
-						cameraVM.showProgress = true
-						cameraVM.callTakePhotoFunctionInUIKIT()
-					}) {
-						Image(systemName: "record.circle")
-							.font(.system(size: geo.size.height * 0.1))
-							.foregroundColor(.highLighter)
-					}.padding(.top,0)
+
 					Spacer()
 				}
 			}
@@ -62,24 +55,24 @@ struct QRPreviewView : View{
 				if(cameraVM.qrPreviewState?.A == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.highLighter)
+						.foregroundColor(.specAccent)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.lowLighter)
+						.foregroundColor(.specD)
 						.opacity(0.4)
 				}
 				Spacer()
 				if(cameraVM.qrPreviewState?.B == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.highLighter)
+						.foregroundColor(.specAccent)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.lowLighter)
+						.foregroundColor(.specD)
 						.opacity(0.4)
 				}
 				Spacer()
@@ -93,24 +86,24 @@ struct QRPreviewView : View{
 				if(cameraVM.qrPreviewState?.C == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.highLighter)
+						.foregroundColor(.specAccent)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.lowLighter)
+						.foregroundColor(.specD)
 						.opacity(0.4)
 				}
 				Spacer()
 				if(cameraVM.qrPreviewState?.D == true){
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.highLighter)
+						.foregroundColor(.specAccent)
 						.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 				}else{
 					Image(systemName: "qrcode.viewfinder")
 						.font(.system(size: 50))
-						.foregroundColor(.lowLighter)
+						.foregroundColor(.specD)
 						.opacity(0.4)
 				}
 				Spacer()

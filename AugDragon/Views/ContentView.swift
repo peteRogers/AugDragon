@@ -18,6 +18,7 @@ struct ContentView: View {
 				Rectangle()
 				}.frame(maxHeight: .infinity)
 				.edgesIgnoringSafeArea(.all)
+				.foregroundColor(.specA)
 				
 			VStack{
 				switch cameraVM.viewState {

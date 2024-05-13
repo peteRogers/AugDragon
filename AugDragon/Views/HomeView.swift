@@ -15,27 +15,17 @@ struct HomeView: View{
 			Text("Saved Mats")
 				.font(.largeTitle)
 				.padding(.top)
-				.foregroundColor(.lighttext)
+				.foregroundColor(.specE)
 		
 			List(cvm.savedMats) { item in
 				MatEntryView(mat: item, cvm: cvm)
 					.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
 					.frame(height: 120)
 					.listRowInsets(EdgeInsets())
-					.padding(.top, 10)
-					.background(Color.black)
+					.padding(.top, 15)
+					.background(.specA)
 			} //.background(Color.red)
 			.scrollContentBackground(.hidden)
-//			GeometryReader { proxy in
-//				VStack{
-//					ForEach(cvm.savedMats, id: \.id) { mat in
-//						MatEntryView(mat: mat, cvm: cvm)
-//						.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:proxy.size.width/3)
-//						.padding(.horizontal, 10)
-//						.padding(.bottom, 10)
-//					}
-//				}
-//			}
 			
 		}.frame(maxWidth: .infinity, alignment: .leading)
 	}

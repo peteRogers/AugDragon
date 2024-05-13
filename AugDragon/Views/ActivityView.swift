@@ -16,7 +16,7 @@ struct ActivityView: View{
 		VStack{
 			Image(systemName: "fireworks")
 				.font(.system(size: 80))
-				.foregroundStyle(.lowLighter, .highLighter)
+				.foregroundStyle(.specC, .specAccent)
 				.symbolEffect(.bounce, options: .speed(1).repeating, value: bounceMe)
 				.symbolEffect(.variableColor.iterative, options: .repeating, value: bounceMe)
 				.rotationEffect(.degrees(degreesRotating))

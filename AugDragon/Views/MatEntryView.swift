@@ -16,12 +16,11 @@ struct MatEntryView: View{
 		GeometryReader { proxy in
 			ZStack {
 				RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-					.foregroundColor(.lowLighter)
+					.foregroundColor(.specB)
 					
 				HStack{
 					//RoundedRectangle(cornerRadius: 20)
 					Button {
-						print("Edit button was tapped")
 						cvm.showProgress = true
 						cvm.viewState = .showLoading
 						DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -55,11 +54,11 @@ struct MatEntryView: View{
 							.fontDesign(.rounded)
 							.fontWeight(.bold)							
 							.frame( maxWidth: .infinity, alignment: .leading)
-							.foregroundColor(.lighttext)
+							.foregroundColor(.specE)
 						Text("blah")
 							.fontDesign(.rounded)
 							.fontWeight(.regular)
-							.foregroundColor(.lighttext)
+							.foregroundColor(.specE)
 							.frame( maxWidth: .infinity, alignment: .leading)
 						Spacer()
 					}.frame(maxWidth: .infinity)

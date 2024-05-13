@@ -19,6 +19,7 @@ struct InstructionsView: View{
 				Rectangle()
 			}.frame(maxHeight: .infinity)
 				.edgesIgnoringSafeArea(.all)
+				.foregroundColor(.specA)
 			VStack{
 				VideoPlayer(player: player)
 					.frame(height: 400)
