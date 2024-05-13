@@ -31,3 +31,8 @@ enum SavingError: Error {
 	case urlNotCreated
 	case matUnableToBeCreatedError
 }
+
+enum CameraError: Error {
+	case noFrontFaceCamera
+	case noDeviceInput
+}

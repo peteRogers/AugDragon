@@ -28,14 +28,12 @@
 		2FBD2F4D2B50C259004AC58B /* imgTest2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FBD2F4C2B50C259004AC58B /* imgTest2.png */; };
 		2FBD2F512B514907004AC58B /* StateEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD2F502B514907004AC58B /* StateEnums.swift */; };
 		2FBD2F542B516570004AC58B /* ButtonMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD2F532B516570004AC58B /* ButtonMenuView.swift */; };
-		2FBD2FB22B588F01004AC58B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD2FB12B588F01004AC58B /* Errors.swift */; };
 		2FEC1D872AFA55DF0047B439 /* PhotoCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */; };
 		2FEC1D892AFB17F10047B439 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC1D882AFB17F10047B439 /* CameraView.swift */; };
 		2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D232AF3FD6000B80D62 /* AugDragonApp.swift */; };
 		2FFD8D282AF3FD6200B80D62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD8D272AF3FD6200B80D62 /* Assets.xcassets */; };
 		2FFD8D2B2AF3FD6200B80D62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD8D2A2AF3FD6200B80D62 /* Preview Assets.xcassets */; };
 		2FFD8D332AF3FDB700B80D62 /* VisionAnalyserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D322AF3FDB700B80D62 /* VisionAnalyserModel.swift */; };
-		2FFD8D362AF3FDF900B80D62 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D352AF3FDF900B80D62 /* AppError.swift */; };
 		2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D372AF3FE2300B80D62 /* CameraViewModel.swift */; };
 		2FFD8D3B2AF3FF5700B80D62 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */; };
 		2FFD8D3D2AF3FF5F00B80D62 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD8D3C2AF3FF5F00B80D62 /* CameraViewController.swift */; };
@@ -65,7 +63,6 @@
 		2FBD2F4C2B50C259004AC58B /* imgTest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgTest2.png; sourceTree = "<group>"; };
 		2FBD2F502B514907004AC58B /* StateEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateEnums.swift; sourceTree = "<group>"; };
 		2FBD2F532B516570004AC58B /* ButtonMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMenuView.swift; sourceTree = "<group>"; };
-		2FBD2FB12B588F01004AC58B /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCheckView.swift; sourceTree = "<group>"; };
 		2FEC1D882AFB17F10047B439 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		2FFD8D202AF3FD6000B80D62 /* AugDragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugDragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +70,6 @@
 		2FFD8D272AF3FD6200B80D62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFD8D2A2AF3FD6200B80D62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FFD8D322AF3FDB700B80D62 /* VisionAnalyserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAnalyserModel.swift; sourceTree = "<group>"; };
-		2FFD8D352AF3FDF900B80D62 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2FFD8D372AF3FE2300B80D62 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		2FFD8D3C2AF3FF5F00B80D62 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -98,38 +94,33 @@
 				2FBD2F4C2B50C259004AC58B /* imgTest2.png */,
 				2F6004DA2B5AFE800099D4A3 /* topDownAnim_1.mp4 */,
 				2F7D5AC62B0CFDCB001760FE /* catFace.usdz */,
-				2FBBE8C72B10406400777031 /* catFace.jpg */,
 				2F6E14FB2B2B6D8A009B6710 /* catMaskLayoutV2.png */,
-				2FBD2FB12B588F01004AC58B /* Errors.swift */,
+				2FBBE8C72B10406400777031 /* catFace.jpg */,
 			);
 			path = resources;
 			sourceTree = "<group>";
 		};
-		2F8A87B02B32F90E00DA3DA4 /* structs */ = {
+		2F6520902BF2286D00F30AFB /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */,
+				2FFD8D372AF3FE2300B80D62 /* CameraViewModel.swift */,
+				2FFD8D3C2AF3FF5F00B80D62 /* CameraViewController.swift */,
+				2FFD8D412AF3FFFA00B80D62 /* CameraViewRepresentable.swift */,
+				2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */,
+				2FEC1D882AFB17F10047B439 /* CameraView.swift */,
 			);
-			path = structs;
+			path = Camera;
 			sourceTree = "<group>";
 		};
 		2FB0DF8C2B7459C40035E62B /* businessLogic */ = {
 			isa = PBXGroup;
 			children = (
 				2FB0DF8D2B745A210035E62B /* HandlingJSON.swift */,
-			);
-			path = businessLogic;
-			sourceTree = "<group>";
-		};
-		2FBD2F522B516498004AC58B /* commons */ = {
-			isa = PBXGroup;
-			children = (
-				2FB0DF8C2B7459C40035E62B /* businessLogic */,
-				2F1010B22B33630600505880 /* resources */,
 				2FBD2F502B514907004AC58B /* StateEnums.swift */,
+				2F8A87B12B32F9BC00DA3DA4 /* ItemEntry.swift */,
 				2F81E9122B5890550065E2B2 /* AppErrors.swift */,
 			);
-			path = commons;
+			path = businessLogic;
 			sourceTree = "<group>";
 		};
 		2FFD8D172AF3FD6000B80D62 = {
@@ -151,12 +142,12 @@
 		2FFD8D222AF3FD6000B80D62 /* AugDragon */ = {
 			isa = PBXGroup;
 			children = (
-				2FBD2F522B516498004AC58B /* commons */,
-				2F8A87B02B32F90E00DA3DA4 /* structs */,
-				2FFD8D3E2AF3FFBF00B80D62 /* Views */,
+				2F1010B22B33630600505880 /* resources */,
+				2FB0DF8C2B7459C40035E62B /* businessLogic */,
+				2F6520902BF2286D00F30AFB /* Camera */,
+				2FFD8D3E2AF3FFBF00B80D62 /* GUI */,
 				2FFD8D312AF3FD7E00B80D62 /* Models */,
 				2FFD8D392AF3FF4100B80D62 /* UIKitViews */,
-				2FFD8D342AF3FDE500B80D62 /* Errors */,
 				2FFD8D232AF3FD6000B80D62 /* AugDragonApp.swift */,
 				2FFD8D272AF3FD6200B80D62 /* Assets.xcassets */,
 				2FFD8D292AF3FD6200B80D62 /* Preview Content */,
@@ -176,33 +167,22 @@
 			isa = PBXGroup;
 			children = (
 				2F1DF7AC2B50A29A00C0CED6 /* FacePaintModel.swift */,
-				2FFD8D372AF3FE2300B80D62 /* CameraViewModel.swift */,
 				2FFD8D322AF3FDB700B80D62 /* VisionAnalyserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		2FFD8D342AF3FDE500B80D62 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				2FFD8D352AF3FDF900B80D62 /* AppError.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		2FFD8D392AF3FF4100B80D62 /* UIKitViews */ = {
 			isa = PBXGroup;
 			children = (
-				2FFD8D3C2AF3FF5F00B80D62 /* CameraViewController.swift */,
 				2F7D160D2B5FE05900D396A0 /* RealityViewController.swift */,
 				2F7D5AC42B0CFD15001760FE /* QuickLookController.swift */,
-				2FFD8D3A2AF3FF5700B80D62 /* CameraPreview.swift */,
 				2F1DF7A82B50A09F00C0CED6 /* FacePaintView.swift */,
 			);
 			path = UIKitViews;
 			sourceTree = "<group>";
 		};
-		2FFD8D3E2AF3FFBF00B80D62 /* Views */ = {
+		2FFD8D3E2AF3FFBF00B80D62 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
 				2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */,
@@ -212,13 +192,11 @@
 				2FFD8D3F2AF3FFD400B80D62 /* ContentView.swift */,
 				2FBD2F532B516570004AC58B /* ButtonMenuView.swift */,
 				2F8A87AC2B32EB3500DA3DA4 /* MatEntryView.swift */,
-				2FEC1D882AFB17F10047B439 /* CameraView.swift */,
 				2F6E14FD2B2B78C5009B6710 /* RealityView.swift */,
-				2FFD8D412AF3FFFA00B80D62 /* CameraViewRepresentable.swift */,
 				2F4756DD2B2FC89400857831 /* RealityKitLiveViewRepresentable.swift */,
 				2F8A87AE2B32EBCA00DA3DA4 /* HomeView.swift */,
 			);
-			path = Views;
+			path = GUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FFD8D362AF3FDF900B80D62 /* AppError.swift in Sources */,
 				2F6004972B5A08F20099D4A3 /* InstructionsView.swift in Sources */,
 				2FFD8D332AF3FDB700B80D62 /* VisionAnalyserModel.swift in Sources */,
 				2F7D5AC52B0CFD15001760FE /* QuickLookController.swift in Sources */,
@@ -318,7 +295,6 @@
 				2F1DF7AD2B50A29A00C0CED6 /* FacePaintModel.swift in Sources */,
 				2FBD2F512B514907004AC58B /* StateEnums.swift in Sources */,
 				2FA02C062B719534008BC355 /* ImageEditView.swift in Sources */,
-				2FBD2FB22B588F01004AC58B /* Errors.swift in Sources */,
 				2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */,
 				2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */,
 				2FFD8D422AF3FFFA00B80D62 /* CameraViewRepresentable.swift in Sources */,

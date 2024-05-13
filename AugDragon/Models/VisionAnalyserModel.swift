@@ -21,7 +21,7 @@ class VisionAnalyserModel{
 		if let results = barcodeRequest.results {
 			return results
 		}
-		throw QrCodeError.badbad
+		throw QRCodeError.noneFound
 	}
 	
 	func getQRCodesFromImage(img: CGImage) throws -> [VNBarcodeObservation]{
@@ -32,7 +32,7 @@ class VisionAnalyserModel{
 		if let results = barcodeRequest.results {
 			return results
 		}
-		throw QrCodeError.badbad
+		throw QRCodeError.noneFound
 	}
 	
 	func getCroppedBoundary(codeList: [VNBarcodeObservation])throws -> (CGPoint, CGPoint, CGPoint, CGPoint){
@@ -114,16 +114,16 @@ class VisionAnalyserModel{
 	
 	
 	func filterSaturation(for ciImage: CIImage)throws -> CIImage?{
-	
-	let filter = CIFilter(name: "CIColorControls")
-	
-	// Set the input image
-	filter?.setValue(ciImage, forKey: kCIInputImageKey)
-	
-	// Set saturation to 0 to create a black and white effect
-	filter?.setValue(2, forKey: kCIInputSaturationKey)
-	return filter?.outputImage
-}
+		
+		let filter = CIFilter(name: "CIColorControls")
+		
+		// Set the input image
+		filter?.setValue(ciImage, forKey: kCIInputImageKey)
+		
+		// Set saturation to 0 to create a black and white effect
+		filter?.setValue(2, forKey: kCIInputSaturationKey)
+		return filter?.outputImage
+	}
 	
 	func completeImage(for ciImage: CIImage) throws -> UIImage? {
 		let context = CIContext()

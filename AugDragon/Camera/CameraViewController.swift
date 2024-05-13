@@ -46,17 +46,18 @@ final class CameraViewController: UIViewController {
 		// Select a front facing camera, make an input.
 		guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera,for: .video,position: .back)
 		else {
-			throw AppError.captureSessionSetup(reason: "Could not find a front facing camera.")
+			throw CameraError.noFrontFaceCamera
+			//throw AppError.captureSessionSetup(reason: "Could not find a front facing camera.")
 		}
 		guard let deviceInput = try? AVCaptureDeviceInput(device: videoDevice
 		) else {
-			throw AppError.captureSessionSetup(reason: "Could not create video device input.")
+			throw CameraError.noDeviceInput
 		}
 		let session = AVCaptureSession()
 		session.beginConfiguration()
 		session.sessionPreset = AVCaptureSession.Preset.photo
 		guard session.canAddInput(deviceInput) else {
-			throw AppError.captureSessionSetup(reason: "Could not add video device input to the session")
+			throw CameraError.noDeviceInput
 		}
 		session.addInput(deviceInput)
 		let dataOutput = AVCaptureVideoDataOutput()
@@ -65,8 +66,7 @@ final class CameraViewController: UIViewController {
 			dataOutput.alwaysDiscardsLateVideoFrames = true
 			dataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
 		} else {
-			throw AppError.captureSessionSetup(
-				reason: "Could not add video data output to the session")
+			throw CameraError.noDeviceInput
 		}
 		if session.canAddOutput(photoOutput) {
 			photoOutput.maxPhotoQualityPrioritization = .quality
