@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct RealityView: View{
-	@ObservedObject var cameraVM:CameraViewModel
+	var cameraVM:CameraViewModel
 	var body: some View{
 	VStack{
-			RealityKitLiveViewRepresentable(mat: cameraVM.currentMat!, showProgress: $cameraVM.showProgress)
+			RealityKitLiveViewRepresentable(mat: cameraVM.currentMat!, showProgress: cameraVM.showProgress)
 		}
 	}
 }

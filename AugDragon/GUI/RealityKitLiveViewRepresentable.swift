@@ -3,7 +3,7 @@ import RealityKit
 
 struct RealityKitLiveViewRepresentable: UIViewControllerRepresentable {
 	var mat: Mat
-	@Binding var showProgress:Bool
+	var showProgress:Bool
 	
 	func makeCoordinator() -> Coordinator {
 		//	class Coordinator: NSObject{

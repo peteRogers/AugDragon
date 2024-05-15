@@ -96,6 +96,7 @@ final class RealityViewController: UIViewController{
 	override func viewWillDisappear(_ animated: Bool) {
 		
 		super.viewWillDisappear(animated)
+		coordinator?.parent.showProgress = false
 		print("reality view disappeared")
 		arView.session.pause()
 		         // there's no session on macOS

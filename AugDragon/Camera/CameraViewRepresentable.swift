@@ -10,7 +10,7 @@ import AVFoundation
 
 
 struct CameraViewRepresentable: UIViewControllerRepresentable {
-	@ObservedObject var model: CameraViewModel
+	var model: CameraViewModel
 	var sampleBuffer: ((CMSampleBuffer) -> Void)?
 	
 	func makeUIViewController(context: Context) -> CameraViewController {
@@ -37,8 +37,16 @@ struct CameraViewRepresentable: UIViewControllerRepresentable {
 			self.model = model
 		}
 		@MainActor func imageDataChanged(newValue: CGImage){
+			
 			model.rawPhoto = newValue
 		}
+		
+		@MainActor func viewHasLoaded(){
+			model.showProgress = false
+			print("from viewHasLoaded")
+		}
+		
+		
 		
 		@MainActor func setupFunctionCaller(viewController: CameraViewController) {
 			model.takePhotoCaller = {

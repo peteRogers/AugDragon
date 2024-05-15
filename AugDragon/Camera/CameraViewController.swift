@@ -29,10 +29,13 @@ final class CameraViewController: UIViewController {
 			}
 			DispatchQueue.global(qos: .userInteractive).async{
 				self.cameraFeedSession?.startRunning()
+				self.coordinator?.viewHasLoaded()
 			}
 		} catch {
 			print(error.localizedDescription)
 		}
+		//print("camera view has appeared")
+		
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {

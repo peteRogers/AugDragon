@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct HomeView: View{
-	@ObservedObject var cvm:CameraViewModel
+	 var cvm:CameraViewModel
 	var body: some View{
 		VStack{
 			Text("Saved Mats")

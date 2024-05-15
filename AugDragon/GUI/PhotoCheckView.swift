@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct photoCheckView: View{
-	@ObservedObject var cvm:CameraViewModel
+	var cvm:CameraViewModel
 	
 	var body: some View{
 		
@@ -26,7 +26,9 @@ struct photoCheckView: View{
 						.aspectRatio(contentMode: .fit)
 						.cornerRadius(30)
 						.onAppear(){
-							cvm.showProgress = false
+							DispatchQueue.main.async {
+								cvm.showProgressView(_show: false)
+							}
 						}
 					Spacer()
 				}

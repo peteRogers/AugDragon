@@ -34,6 +34,7 @@ class VisionAnalyserModel{
 		}
 		throw QRCodeError.noneFound
 	}
+
 	
 	func getCroppedBoundary(codeList: [VNBarcodeObservation])throws -> (CGPoint, CGPoint, CGPoint, CGPoint){
 		guard let codeA = getQRFromSearch(search: "A", array: codeList) else {
@@ -54,12 +55,31 @@ class VisionAnalyserModel{
 				CGPoint(x:codeD.boundingBox.midX, y:codeD.boundingBox.midY))
 	}
 	
+//	func getQRFromSearch(search:String, array:[VNBarcodeObservation])-> VNBarcodeObservation?{
+//		if let matchedObservation = array.first(where: { $0.payloadStringValue == search }) {
+//			return matchedObservation
+//		}
+//		return nil
+//	}
+	
 	func getQRFromSearch(search:String, array:[VNBarcodeObservation])-> VNBarcodeObservation?{
-		if let matchedObservation = array.first(where: { $0.payloadStringValue == search }) {
+		if let matchedObservation = array.first(where: { $0.payloadStringValue?.contains(search) ?? false }) {
 			return matchedObservation
 		}
 		return nil
 	}
+	
+	func getIDFromQR(qrSting: String)throws  ->String{
+		//let array = 
+		let splitStrings = qrSting.split(separator: ">").map(String.init)
+		if(splitStrings.count > 0){
+			return splitStrings[0]
+			
+		}
+		
+		throw QRCodeError.noneFound
+	}
+
 	
 	func correctPerspective(for ciImage: CIImage, topLeft: CGPoint, topRight: CGPoint, bottomLeft: CGPoint, bottomRight: CGPoint) throws -> CIImage? {
 		

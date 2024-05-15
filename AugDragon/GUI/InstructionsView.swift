@@ -10,7 +10,7 @@ import SwiftUI
 import AVKit
 
 struct InstructionsView: View{
-	@ObservedObject var cvm:CameraViewModel
+	var cvm:CameraViewModel
 	
 	var body: some View{
 		let player = AVPlayer()

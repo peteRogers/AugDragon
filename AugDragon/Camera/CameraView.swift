@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct CameraView: View{
-	@ObservedObject var cameraVM:CameraViewModel
+	var cameraVM:CameraViewModel
 	var body: some View{
 		
 		ZStack{
@@ -44,7 +44,7 @@ struct CameraView: View{
 
 
 struct QRPreviewView : View{
-	@ObservedObject var cameraVM:CameraViewModel
+	var cameraVM:CameraViewModel
 	var body: some View{
 		VStack{
 			Spacer()

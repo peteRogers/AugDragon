@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 struct ButtonMenuView: View{
-	@ObservedObject var cvm:CameraViewModel
+	var cvm:CameraViewModel
 	let bSize:CGFloat = 40
 	var body: some View{
 		HStack{
 			if(cvm.viewState == .showHome){
 				Button(action: {
-					cvm.viewState = .showCamera
+					cvm.showCamera()
 				}) {
 					Image(systemName: "photo.badge.plus")
 						.font(.system(size:bSize))
@@ -23,7 +23,9 @@ struct ButtonMenuView: View{
 					
 				}.padding()
 				Button(action: {
-					cvm.viewState = .showInstructions
+					DispatchQueue.main.async {
+						cvm.showInstructions()
+					}
 				}) {
 					Image(systemName: "info.circle")
 						.font(.system(size:bSize))
@@ -33,7 +35,9 @@ struct ButtonMenuView: View{
 			if(cvm.viewState == .showPhotoPreview || cvm.viewState == .showPhotoSettings){
 				Spacer()
 				Button(action: {
-					cvm.viewState = .showHome
+					
+						cvm.showHome()
+					
 				}) {
 					
 					Image(systemName: "arrowshape.backward.circle.fill")
@@ -43,7 +47,9 @@ struct ButtonMenuView: View{
 				}
 				Spacer()
 				Button(action: {
-					cvm.viewState = .showCamera
+					DispatchQueue.main.async {
+						cvm.showCamera()
+					}
 				}) {
 					Image(systemName: "camera.circle")
 						.font(.system(size: bSize))
@@ -52,9 +58,13 @@ struct ButtonMenuView: View{
 				Spacer()
 				Button(action: {
 					if(cvm.viewState == .showPhotoPreview){
-						cvm.viewState = .showPhotoSettings
+						
+							cvm.showPhotoSettings()
+						
 					}else{
-						cvm.viewState = .showPhotoPreview
+						
+							cvm.showPhotoPreview()
+						
 					}
 				}) {
 					Image(systemName: "circle.bottomrighthalf.checkered")
@@ -64,7 +74,9 @@ struct ButtonMenuView: View{
 				Spacer()
 				Button(action: {
 					//SAVE//
-					cvm.showProgress = true
+					DispatchQueue.main.async {
+						cvm.showProgressView(_show: true)
+					}
 					DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 						print("launching maskView")
 						cvm.saveMat()
@@ -79,7 +91,9 @@ struct ButtonMenuView: View{
 			}
 			if(cvm.viewState == .showCamera){
 				Button(action: {
-					cvm.viewState = .showHome
+					
+					cvm.showHome()
+					
 				}) {
 					Image(systemName: "figure.walk.motion")
 						.font(.system(size: bSize))
@@ -90,8 +104,10 @@ struct ButtonMenuView: View{
 
 				Button(action: {
 					// Action to perform when the button is tapped
-					cvm.showProgress = true
-					cvm.callTakePhotoFunctionInUIKIT()
+					//DispatchQueue.main.async {
+						cvm.showProgressView(_show: true)
+						cvm.callTakePhotoFunctionInUIKIT()
+					//}
 				}) {
 					Image(systemName: "record.circle")
 						.font(.system(size: bSize*2))
@@ -115,7 +131,9 @@ struct ButtonMenuView: View{
 			{
 				//Spacer()
 				Button(action: {
-					cvm.viewState = .showHome
+					
+						cvm.showHome()
+				
 				}) {
 					Image(systemName: "figure.walk.motion")
 						.font(.system(size: bSize))

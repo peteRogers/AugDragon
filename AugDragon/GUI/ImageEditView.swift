@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ImageEditView: View{
-	@ObservedObject var cvm:CameraViewModel
+	var cvm:CameraViewModel
 	@State private var whiteValue: Double = 0.5
 	@State private var contrastValue: Double = 0.5
 	var body: some View{

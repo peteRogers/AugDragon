@@ -10,7 +10,7 @@ import Foundation
 
 enum ViewState {
 	case showCamera, showPhotoPreview, showHome,
-		 showMaskView, showFacePaintView, showInstructions, showLoading, showPhotoSettings
+		 showMaskView, showFacePaintView, showInstructions,  showPhotoSettings
 }
 
 enum MatType: String, Decodable, Encodable {

@@ -8,20 +8,7 @@
 import Foundation
 import UIKit
 
-struct ItemEntry: Codable, Identifiable {
-	let title: String
-	let imageURL: URL
-	let date: Date
-	let id: UUID
-	
-	
-	
-	static func preview() -> [ItemEntry] {
-		return [ItemEntry(title: "Apple", imageURL: URL(string:"www.bbc.com")!, date: Date.now, id: UUID())
-				
-		]
-	}
-}
+
 
 struct QRDetection{
 	let A:Bool
@@ -30,18 +17,33 @@ struct QRDetection{
 	let D:Bool
 }
 
+struct ImageStore{
+	let id: String
+	let image: UIImage
+	var isSaved = false
+	
+}
+
 
 struct Mat: Codable, Identifiable{
 	let id: UUID
 	private (set) var imgSettings: ImgSettings?
 	var linkToImage: URL?
-	let type: MatType
-	let date: Date
+	var matTemplate: MatTemplate?
+	var date: Date = Date.now
+	private (set) var matID: String?
 	
-	init(image:UIImage, type:MatType ) async throws{
+	
+	init() {
 		self.id = UUID()
-		self.date = Date.now
-		self.type = type
+		
+	}
+	
+	func getID()->String{
+		return id.uuidString
+	}
+	
+	mutating func saveImageToDisk(image: UIImage) async throws{
 		do{
 			if let url = try await saveImage(filename: self.id.uuidString, img: image){
 				self.linkToImage =  url
@@ -51,11 +53,15 @@ struct Mat: Codable, Identifiable{
 		}
 	}
 	
+	mutating func setMatTemplate(_matTemplate: MatTemplate ){
+		matTemplate =  _matTemplate
+	}
+	
 	mutating func changeImageSettings(settings: ImgSettings){
 		imgSettings	= settings
 	}
 	
-	func saveImage(filename:String, img: UIImage) async throws  -> URL?{
+	private func saveImage(filename:String, img: UIImage) async throws  -> URL?{
 		guard let imageData = img.pngData() else {
 			throw SavingError.imageDataError
 		}
@@ -65,7 +71,7 @@ struct Mat: Codable, Identifiable{
 		return u
 	}
 	
-	func storeImageData(data:Data, filename: String ) async -> URL?{
+	private func storeImageData(data:Data, filename: String ) async -> URL?{
 		do{
 			let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(filename).png")
 			try data.write(to: url)
@@ -75,6 +81,11 @@ struct Mat: Codable, Identifiable{
 			return nil
 		}
 	}
+}
+
+struct MatTemplate:  Codable{
+	let matID: String
+	var matType: MatType = .catMask
 }
 
 struct ImgSettings: Codable{

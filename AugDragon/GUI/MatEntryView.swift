@@ -21,10 +21,13 @@ struct MatEntryView: View{
 				HStack{
 					//RoundedRectangle(cornerRadius: 20)
 					Button {
-						cvm.showProgress = true
-						cvm.viewState = .showLoading
+						//DispatchQueue.main.async {
+						cvm.showProgressView(_show: true)
+							
+						//}
 						DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 							cvm.openMat(mat: mat)
+							cvm.showProgressView(_show: false)
 						}
 					} label: {
 						AsyncImage(url: mat.linkToImage)
@@ -50,12 +53,12 @@ struct MatEntryView: View{
 						.padding(.leading, 5)
 					}
 					VStack{
-						Text(mat.type.rawValue)
+						Text(mat.matTemplate?.matType.rawValue ?? "Mat not Assigned")
 							.fontDesign(.rounded)
 							.fontWeight(.bold)							
 							.frame( maxWidth: .infinity, alignment: .leading)
 							.foregroundColor(.specE)
-						Text("blah")
+						Text(mat.matTemplate?.matID ?? "nil")
 							.fontDesign(.rounded)
 							.fontWeight(.regular)
 							.foregroundColor(.specE)

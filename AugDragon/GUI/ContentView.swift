@@ -10,7 +10,7 @@ import Vision
 
 struct ContentView: View {
 	@State private var orientation = UIDeviceOrientation.unknown
-	@StateObject var cameraVM = CameraViewModel()
+	var cameraVM = CameraViewModel()
 	@ObservedObject var arDelegate = FacePaintModel()
 	var body: some View {
 		ZStack{
@@ -37,15 +37,16 @@ struct ContentView: View {
 					FacePaintViewRepresentable(arDelegate: arDelegate)
 				case .showInstructions:
 					InstructionsView(cvm:cameraVM)
-				case .showLoading:
-					Rectangle()
 				case .showPhotoSettings:
 					photoCheckView(cvm:cameraVM)
 					
+				case .none:
+					HomeView(cvm: cameraVM)
 				}
 				Spacer()
 				ButtonMenuView(cvm: cameraVM)
 			}
+			
 			if(cameraVM.showProgress == true){
 				ActivityView()
 			}
