@@ -53,8 +53,13 @@ import UIKit
 	
 	func openMat(mat:Mat){
 		currentMat = mat
-		DispatchQueue.main.async {
-			self.showMaskView()
+		DispatchQueue.main.async { [self] in
+			if(currentMat?.matTemplate?.matID == "2"){
+				viewState = .showFacePaintView
+			}
+			if(currentMat?.matTemplate?.matID == "1"){
+				viewState = .showMaskView
+			}
 		}
 	}
 	
@@ -133,27 +138,6 @@ import UIKit
 		}
 	}
 	
-//	func saveMat(){
-//		Task{
-//			if capturedPhotoPreview != nil{
-//				do{
-//					var m1 = try await Mat(image: capturedPhotoPreview!)
-//					
-//					m1.setMatTemplate(_matTemplate: MatTemplate(matID: "1", matType: .catMask))
-//					savedMats.append(m1)
-//					currentMat = m1
-//					if(m1.matTemplate?.matType == .catMask){
-//						DispatchQueue.main.async {
-//							self.showMaskView()
-//						}
-//					}
-//					
-//				}catch{
-//					print("cannot save for some reason")
-//				}
-//			}
-//		}
-//	}
 	
 	var sampleBuffer:CMSampleBuffer?{
 		didSet{

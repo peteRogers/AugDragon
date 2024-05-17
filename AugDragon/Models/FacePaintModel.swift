@@ -14,7 +14,8 @@ class FacePaintModel: NSObject, ARSCNViewDelegate, ObservableObject, ARSessionDe
 	@Published var message:String = "starting AR"
 	private var arView: ARSCNView!
 	var faceAnchorsAndContentControllers: [ARFaceAnchor: FacePaintController] = [:]
-	
+	var mat:Mat?
+	weak var coordinator: FacePaintViewRepresentable.Coordinator?
 	func setARView(_ arView: ARSCNView) {
 		
 		self.arView = arView
@@ -41,6 +42,7 @@ class FacePaintModel: NSObject, ARSCNViewDelegate, ObservableObject, ARSessionDe
 		guard let faceAnchor = anchor as? ARFaceAnchor else { return }
 		DispatchQueue.main.async {
 			let contentController = TexturedFace()
+			contentController.imageToShow = self.coordinator?.mat
 			if node.childNodes.isEmpty, let contentNode = contentController.renderer(renderer, nodeFor: faceAnchor) {
 				node.addChildNode(contentNode)
 				self.faceAnchorsAndContentControllers[faceAnchor] = contentController
@@ -75,7 +77,7 @@ protocol FacePaintController: ARSCNViewDelegate {
 class TexturedFace: NSObject, FacePaintController {
 	
 	var contentNode: SCNNode?
-	
+	var imageToShow:Mat?
 	/// - Tag: CreateARSCNFaceGeometry
 	func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
 		guard let sceneView = renderer as? ARSCNView,
@@ -84,10 +86,20 @@ class TexturedFace: NSObject, FacePaintController {
 //#if targetEnvironment(simulator)
 //#error("ARKit is not supported in iOS Simulator. Connect a physical iOS device and select it as your Xcode run destination, or select Generic iOS Device as a build-only destination.")
 //#else
+		var imgToShow:UIImage?
+		if let urlToImage = imageToShow?.linkToImage{
+			
+			do{
+				let imageData = try Data(contentsOf: urlToImage)
+				imgToShow = UIImage(data: imageData)
+			}catch{
+				
+			}
+		}
 		let faceGeometry = ARSCNFaceGeometry(device: sceneView.device!)!
 		if let material = faceGeometry.firstMaterial{
-			if let inImage = UIImage(named: "imgTest2"){
-				if let inputImage = CIImage(image: inImage) {
+			//if let inImage = UIImage(named: "imgTest2"){
+			if let inputImage = CIImage(image: imgToShow!) {
 					if let exposureAdjustFilter = CIFilter(name: "CIExposureAdjust"){
 						exposureAdjustFilter.setValue(inputImage, forKey: kCIInputImageKey)
 						exposureAdjustFilter.setValue(0.6, forKey: kCIInputEVKey)
@@ -98,7 +110,7 @@ class TexturedFace: NSObject, FacePaintController {
 								material.diffuse.contents = outputUIImage
 								material.lightingModel = .physicallyBased
 							}
-						}
+						//}
 					}
 				}
 			}

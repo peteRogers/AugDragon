@@ -11,10 +11,10 @@ import RealityKit
 import ARKit
 
 
-final class RealityViewController: UIViewController{
+final class MaskViewController: UIViewController{
 	
 	var arView:ARView!
-	weak var coordinator: RealityKitLiveViewRepresentable.Coordinator?
+	weak var coordinator: MaskViewControllerReprentable.Coordinator?
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		

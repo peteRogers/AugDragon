@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RealityView: View{
+struct MaskRealityView: View{
 	var cameraVM:CameraViewModel
 	var body: some View{
 	VStack{

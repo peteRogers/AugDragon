@@ -25,16 +25,16 @@ struct ContentView: View {
 				case .showHome:
 					HomeView(cvm: cameraVM)
 				case .showMaskView:
-					RealityView(cameraVM: cameraVM)
+					MaskRealityView(cameraVM: cameraVM)
 						.onDisappear(perform: {
-							
+							cameraVM.showProgressView(_show: false)
 						})
 				case .showCamera:
 					CameraView(cameraVM: cameraVM)
 				case .showPhotoPreview:
 					photoCheckView(cvm:cameraVM)
 				case .showFacePaintView:
-					FacePaintViewRepresentable(arDelegate: arDelegate)
+					FacePaintViewRepresentable(arDelegate: arDelegate, mat: cameraVM.currentMat!)
 				case .showInstructions:
 					InstructionsView(cvm:cameraVM)
 				case .showPhotoSettings:

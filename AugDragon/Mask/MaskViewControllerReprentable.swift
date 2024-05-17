@@ -1,7 +1,7 @@
 import SwiftUI
 import RealityKit
 
-struct RealityKitLiveViewRepresentable: UIViewControllerRepresentable {
+struct MaskViewControllerReprentable: UIViewControllerRepresentable {
 	var mat: Mat
 	var showProgress:Bool
 	
@@ -13,11 +13,11 @@ struct RealityKitLiveViewRepresentable: UIViewControllerRepresentable {
 	
 	
 	class Coordinator: NSObject{
-		var parent: RealityKitLiveViewRepresentable
+		var parent: MaskViewControllerReprentable
 		var mat: Mat
 		
 		
-		init(_ parent: RealityKitLiveViewRepresentable, mat: Mat) {
+		init(_ parent: MaskViewControllerReprentable, mat: Mat) {
 			self.mat = mat
 			self.parent = parent
 			
@@ -25,13 +25,13 @@ struct RealityKitLiveViewRepresentable: UIViewControllerRepresentable {
 		}
 	}
 	
-	func makeUIViewController(context: Context) -> RealityViewController {
-		let viewController = RealityViewController()
+	func makeUIViewController(context: Context) -> MaskViewController {
+		let viewController = MaskViewController()
 		viewController.coordinator = context.coordinator
 		return viewController
 	}
 
-	func updateUIViewController(_ uiViewController: RealityViewController, context: Context) {
+	func updateUIViewController(_ uiViewController: MaskViewController, context: Context) {
 		// Update the ARView if needed
 	}
 }
