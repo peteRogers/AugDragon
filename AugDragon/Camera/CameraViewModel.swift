@@ -35,19 +35,27 @@ import UIKit
 			self.showHome()
 		}
 		//MARK: creating sample mats
-//		Task{
-//			do{
-//				let img = UIImage(named: "catMaskLayoutV2.png")
-//				var m1 = try await Mat(image: img!)
-//				m1.setMatTemplate(_matTemplate: MatTemplate(matID: "1", matType: .catMask))
-//				savedMats.append(m1)
-//				var m2 = try await Mat(image: img!)
-//				m2.setMatTemplate(_matTemplate: MatTemplate(matID: "1", matType: .catMask))
-//				savedMats.append(m2)
-//			}catch{
-//				
-//			}
+		
+	
+		if let img = UIImage(named: "catMaskLayoutV2.png"){
+					self.makeSampleMat(matID: "1", img: img)
+					print(img.size)
+		}
+		
+		if let img = UIImage(named: "facePaintGraphic.jpg"){
+			self.makeSampleMat(matID: "2", img: img)
+		}
+		
+		if let img = UIImage(named: "butterflyWing.jpg"){
+			self.makeSampleMat(matID: "3", img: img)
+		}
+//		if let img = UIImage(named: "catMaskLayoutV2.png"){
+//			self.makeSampleMat(matID: "1", img: img)
 //		}
+				
+				
+			
+		
 	}
 	
 	
@@ -59,6 +67,9 @@ import UIKit
 			}
 			if(currentMat?.matTemplate?.matID == "1"){
 				viewState = .showMaskView
+			}
+			if(currentMat?.matTemplate?.matID == "3"){
+				viewState = .showButterflyView
 			}
 		}
 	}
@@ -113,6 +124,24 @@ import UIKit
 				presaveMat?.setMatTemplate(_matTemplate: MatTemplate(matID: matID))
 			}
 		}
+	}
+	
+	func makeSampleMat(matID: String, img: UIImage){
+		Task{
+		var mat = Mat()
+		let store = ImageStore(id: mat.getID(), image: img, isSaved: true)
+		imageStore.append(store)
+		mat.setMatTemplate(_matTemplate: MatTemplate(matID: matID))
+		
+			
+			do{
+				try await mat.saveImageToDisk(image: img)
+				savedMats.append(mat)
+				
+				
+			}
+		}
+		
 	}
 	
 	

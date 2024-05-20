@@ -39,7 +39,11 @@ struct ContentView: View {
 					InstructionsView(cvm:cameraVM)
 				case .showPhotoSettings:
 					photoCheckView(cvm:cameraVM)
-					
+				case .showButterflyView:
+					ButterflyRealityView(cameraVM: cameraVM)
+						.onDisappear(perform: {
+							cameraVM.showProgressView(_show: false)
+						})
 				case .none:
 					HomeView(cvm: cameraVM)
 				}

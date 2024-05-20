@@ -12,7 +12,7 @@ struct MaskRealityView: View{
 	var cameraVM:CameraViewModel
 	var body: some View{
 	VStack{
-			RealityKitLiveViewRepresentable(mat: cameraVM.currentMat!, showProgress: cameraVM.showProgress)
+		MaskViewControllerReprentable(mat: cameraVM.currentMat!, showProgress: cameraVM.showProgress)
 		}
 	}
 }

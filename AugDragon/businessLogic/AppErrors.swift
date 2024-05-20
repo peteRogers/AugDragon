@@ -22,6 +22,7 @@ enum CIFilterError: Error {
 
 enum RealityError: Error {
 	case modelLoadingError
+	case componemtError
 	
 }
 

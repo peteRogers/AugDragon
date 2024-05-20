@@ -126,8 +126,10 @@ struct ButtonMenuView: View{
 					
 		
 			}
-			if (cvm.viewState == .showMaskView ||
-				cvm.viewState == .showInstructions || cvm.viewState == .showFacePaintView)
+			if (cvm.viewState == .showMaskView 
+				|| cvm.viewState == .showInstructions
+				|| cvm.viewState == .showFacePaintView
+				|| cvm.viewState == .showButterflyView)
 			{
 				//Spacer()
 				Button(action: {
