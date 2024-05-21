@@ -35,6 +35,11 @@ class ButterflyFlyingMotionControl{
 		subscriptions.removeAll()
 	}
 	
+	func killMe(){
+		print("killed flying")
+		subscriptions.removeAll()
+	}
+	
 	
 	func updateDownPosition(deltaTime: TimeInterval){
 		if var mc:ButterflyMotionComponent = entity?.components[ButterflyMotionComponent.self]{

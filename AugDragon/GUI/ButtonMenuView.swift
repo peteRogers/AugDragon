@@ -78,7 +78,7 @@ struct ButtonMenuView: View{
 						cvm.showProgressView(_show: true)
 					}
 					DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-						print("launching maskView")
+						
 						cvm.saveMat()
 					}
 				}) {
@@ -95,7 +95,7 @@ struct ButtonMenuView: View{
 					cvm.showHome()
 					
 				}) {
-					Image(systemName: "figure.walk.motion")
+					Image(systemName: "chevron.backward.circle.fill")
 						.font(.system(size: bSize))
 						.foregroundColor(.specC)
 						.flipsForRightToLeftLayoutDirection(true)
@@ -117,7 +117,7 @@ struct ButtonMenuView: View{
 				Button(action: {
 					//cvm.viewState = .showHome
 				}) {
-					Image(systemName: "figure.walk.motion")
+					Image(systemName: "chevron.backward.circle.fill")
 						.font(.system(size: bSize))
 						.foregroundColor(.specC)
 						.flipsForRightToLeftLayoutDirection(true)
@@ -137,7 +137,7 @@ struct ButtonMenuView: View{
 						cvm.showHome()
 				
 				}) {
-					Image(systemName: "figure.walk.motion")
+					Image(systemName: "chevron.backward.circle.fill")
 						.font(.system(size: bSize))
 						.foregroundColor(.specC)
 				}.padding(.leading, 10)

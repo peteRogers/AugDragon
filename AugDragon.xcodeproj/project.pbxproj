@@ -25,6 +25,7 @@
 		2F23BE6C2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23BE6B2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift */; };
 		2F23BE6F2BF90761001C87EA /* ButterflyRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23BE6E2BF90761001C87EA /* ButterflyRealityView.swift */; };
 		2F4756DE2B2FC89400857831 /* MaskViewControllerReprentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4756DD2B2FC89400857831 /* MaskViewControllerReprentable.swift */; };
+		2F4F108E2BFC9C5A00C2FF2B /* MotionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F108D2BFC9C5A00C2FF2B /* MotionControl.swift */; };
 		2F6004972B5A08F20099D4A3 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6004962B5A08F20099D4A3 /* InstructionsView.swift */; };
 		2F6004D92B5ABE250099D4A3 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6004D82B5ABE250099D4A3 /* ActivityView.swift */; };
 		2F6004DB2B5AFE800099D4A3 /* topDownAnim_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2F6004DA2B5AFE800099D4A3 /* topDownAnim_1.mp4 */; };
@@ -72,6 +73,7 @@
 		2F23BE6B2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyVIewControllerRepresentable.swift; sourceTree = "<group>"; };
 		2F23BE6E2BF90761001C87EA /* ButterflyRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyRealityView.swift; sourceTree = "<group>"; };
 		2F4756DD2B2FC89400857831 /* MaskViewControllerReprentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskViewControllerReprentable.swift; sourceTree = "<group>"; };
+		2F4F108D2BFC9C5A00C2FF2B /* MotionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionControl.swift; sourceTree = "<group>"; };
 		2F6004962B5A08F20099D4A3 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		2F6004D82B5ABE250099D4A3 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		2F6004DA2B5AFE800099D4A3 /* topDownAnim_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = topDownAnim_1.mp4; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				2F23BE6E2BF90761001C87EA /* ButterflyRealityView.swift */,
 				2F23BE492BF767B2001C87EA /* ButterflyAnimator.swift */,
 				2F23BE4B2BF767B2001C87EA /* ButterflyFlyingMotionControl.swift */,
+				2F4F108D2BFC9C5A00C2FF2B /* MotionControl.swift */,
 				2F23BE4A2BF767B2001C87EA /* ButterflyLandedMotionControl.swift */,
 				2F23BE4F2BF767B3001C87EA /* ButterflyMotionComponent.swift */,
 			);
@@ -357,6 +360,7 @@
 				2F23BE6A2BF8ADFC001C87EA /* ButterflyViewController.swift in Sources */,
 				2FBD2F512B514907004AC58B /* StateEnums.swift in Sources */,
 				2F23BE502BF767B3001C87EA /* ButterflyAnimator.swift in Sources */,
+				2F4F108E2BFC9C5A00C2FF2B /* MotionControl.swift in Sources */,
 				2FA02C062B719534008BC355 /* ImageEditView.swift in Sources */,
 				2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */,
 				2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */,

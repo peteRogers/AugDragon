@@ -30,6 +30,13 @@ class ButterflyLandedMotionControl{
 		takeOffScheduler?.cancelTask()
 	}
 	
+	
+	func killMe(){
+		print("killed landing")
+		takeOffScheduler?.cancelTask()
+		subscriptions.removeAll()
+	}
+	
 	func startLanded(){
 		
 		if var mc:ButterflyMotionComponent = entity?.components[ButterflyMotionComponent.self]{

@@ -66,6 +66,12 @@ final class ButterflyViewController: UIViewController{
 		super.viewWillDisappear(animated)
 		//coordinator?.parent.showProgress = false
 		print("reality view disappeared")
+		arView.scene.performQuery(Self.butterflyQuery).forEach  { entity in
+			if var mc:ButterflyMotionComponent = entity.components[ButterflyMotionComponent.self]{
+				mc.flyingControl.killMe()
+				mc.landedControl.killMe()
+			}
+		}
 		baseEntity?.components.removeAll()
 		subscribes.removeAll()
 		arView.session.pause()
@@ -145,17 +151,7 @@ final class ButterflyViewController: UIViewController{
 							
 					}
 				}
-//				if(mc.state == .landed){
-//					mc.deinitFlyingControl()
-//					if mc.landedControl != nil{
-//
-//						//mc.landedControl?.xoxo
-//					}else{
-//						mc.setLandedControl(entity: entity, arView: arView)
-//						entity.components[MotionComponent.self] = mc
-//					}
-//
-//				}
+
 				
 			
 		}
