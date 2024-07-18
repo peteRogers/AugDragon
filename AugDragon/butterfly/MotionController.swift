@@ -9,7 +9,7 @@ import Foundation
 
 import simd
 
-struct MotionControl {
+struct MotionController {
 	var position: SIMD3<Float> = SIMD3<Float>(0, 0, 0)
 	var velocity: SIMD3<Float> = SIMD3<Float>(0, 0, 0)
 	var rotation: SIMD3<Float> = SIMD3<Float>(0, 0, 0) // Rotation around x, y, z axes
@@ -34,15 +34,12 @@ struct MotionControl {
 	
 	
 	
-	mutating func moveForward(speed: Float) {
-		velocity.z = speed
-		rotation.x = -5.0 // slight nose down
+	mutating func moveDepth(speed: Float) {
+		velocity.z += speed
+		rotation.x += speed
 	}
 	
-	mutating func moveBackward(speed: Float) {
-		velocity.z = -speed
-		rotation.x = 5.0 // slight nose up
-	}
+	
 	
 	mutating func resetRotation() {
 		rotation = SIMD3<Float>(0, 0, 0)
