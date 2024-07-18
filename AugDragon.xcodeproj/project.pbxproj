@@ -22,10 +22,10 @@
 		2F23BE662BF78065001C87EA /* bxTakeOff.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2F23BE632BF78065001C87EA /* bxTakeOff.usdz */; };
 		2F23BE682BF78075001C87EA /* bxFlying.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2F23BE672BF78075001C87EA /* bxFlying.usdz */; };
 		2F23BE6A2BF8ADFC001C87EA /* ButterflyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23BE692BF8ADFC001C87EA /* ButterflyViewController.swift */; };
-		2F23BE6C2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23BE6B2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift */; };
 		2F23BE6F2BF90761001C87EA /* ButterflyRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23BE6E2BF90761001C87EA /* ButterflyRealityView.swift */; };
 		2F4756DE2B2FC89400857831 /* MaskViewControllerReprentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4756DD2B2FC89400857831 /* MaskViewControllerReprentable.swift */; };
-		2F4F108E2BFC9C5A00C2FF2B /* MotionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F108D2BFC9C5A00C2FF2B /* MotionControl.swift */; };
+		2F4F108E2BFC9C5A00C2FF2B /* MotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F108D2BFC9C5A00C2FF2B /* MotionController.swift */; };
+		2F4F10AB2BFCCB4F00C2FF2B /* VirtualGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F10AA2BFCCB4F00C2FF2B /* VirtualGameController.swift */; };
 		2F6004972B5A08F20099D4A3 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6004962B5A08F20099D4A3 /* InstructionsView.swift */; };
 		2F6004D92B5ABE250099D4A3 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6004D82B5ABE250099D4A3 /* ActivityView.swift */; };
 		2F6004DB2B5AFE800099D4A3 /* topDownAnim_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2F6004DA2B5AFE800099D4A3 /* topDownAnim_1.mp4 */; };
@@ -70,10 +70,10 @@
 		2F23BE632BF78065001C87EA /* bxTakeOff.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = bxTakeOff.usdz; sourceTree = "<group>"; };
 		2F23BE672BF78075001C87EA /* bxFlying.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = bxFlying.usdz; sourceTree = "<group>"; };
 		2F23BE692BF8ADFC001C87EA /* ButterflyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyViewController.swift; sourceTree = "<group>"; };
-		2F23BE6B2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyVIewControllerRepresentable.swift; sourceTree = "<group>"; };
 		2F23BE6E2BF90761001C87EA /* ButterflyRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyRealityView.swift; sourceTree = "<group>"; };
 		2F4756DD2B2FC89400857831 /* MaskViewControllerReprentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskViewControllerReprentable.swift; sourceTree = "<group>"; };
-		2F4F108D2BFC9C5A00C2FF2B /* MotionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionControl.swift; sourceTree = "<group>"; };
+		2F4F108D2BFC9C5A00C2FF2B /* MotionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionController.swift; sourceTree = "<group>"; };
+		2F4F10AA2BFCCB4F00C2FF2B /* VirtualGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualGameController.swift; sourceTree = "<group>"; };
 		2F6004962B5A08F20099D4A3 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		2F6004D82B5ABE250099D4A3 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		2F6004DA2B5AFE800099D4A3 /* topDownAnim_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = topDownAnim_1.mp4; sourceTree = "<group>"; };
@@ -144,15 +144,22 @@
 			isa = PBXGroup;
 			children = (
 				2F23BE692BF8ADFC001C87EA /* ButterflyViewController.swift */,
-				2F23BE6B2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift */,
 				2F23BE6E2BF90761001C87EA /* ButterflyRealityView.swift */,
 				2F23BE492BF767B2001C87EA /* ButterflyAnimator.swift */,
 				2F23BE4B2BF767B2001C87EA /* ButterflyFlyingMotionControl.swift */,
-				2F4F108D2BFC9C5A00C2FF2B /* MotionControl.swift */,
+				2F4F108D2BFC9C5A00C2FF2B /* MotionController.swift */,
 				2F23BE4A2BF767B2001C87EA /* ButterflyLandedMotionControl.swift */,
 				2F23BE4F2BF767B3001C87EA /* ButterflyMotionComponent.swift */,
 			);
 			path = butterfly;
+			sourceTree = "<group>";
+		};
+		2F4F10A92BFCCB2900C2FF2B /* GameController */ = {
+			isa = PBXGroup;
+			children = (
+				2F4F10AA2BFCCB4F00C2FF2B /* VirtualGameController.swift */,
+			);
+			path = GameController;
 			sourceTree = "<group>";
 		};
 		2F6520902BF2286D00F30AFB /* Camera */ = {
@@ -242,6 +249,7 @@
 		2FFD8D3E2AF3FFBF00B80D62 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				2F4F10A92BFCCB2900C2FF2B /* GameController */,
 				2FEC1D862AFA55DF0047B439 /* PhotoCheckView.swift */,
 				2F6004D82B5ABE250099D4A3 /* ActivityView.swift */,
 				2FA02C052B719534008BC355 /* ImageEditView.swift */,
@@ -334,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F23BE592BF767C4001C87EA /* Scheduler.swift in Sources */,
-				2F23BE6C2BF902D2001C87EA /* ButterflyVIewControllerRepresentable.swift in Sources */,
 				2F6004972B5A08F20099D4A3 /* InstructionsView.swift in Sources */,
 				2FFD8D332AF3FDB700B80D62 /* VisionAnalyserModel.swift in Sources */,
 				2F23BE562BF767B3001C87EA /* ButterflyMotionComponent.swift in Sources */,
@@ -343,6 +350,7 @@
 				2F6E14FE2B2B78C5009B6710 /* MaskRealityView.swift in Sources */,
 				2F8A87AF2B32EBCA00DA3DA4 /* HomeView.swift in Sources */,
 				2F4756DE2B2FC89400857831 /* MaskViewControllerReprentable.swift in Sources */,
+				2F4F10AB2BFCCB4F00C2FF2B /* VirtualGameController.swift in Sources */,
 				2F81E9132B5890550065E2B2 /* AppErrors.swift in Sources */,
 				2FFD8D402AF3FFD400B80D62 /* ContentView.swift in Sources */,
 				2F1DF7A92B50A09F00C0CED6 /* FacePaintView.swift in Sources */,
@@ -360,7 +368,7 @@
 				2F23BE6A2BF8ADFC001C87EA /* ButterflyViewController.swift in Sources */,
 				2FBD2F512B514907004AC58B /* StateEnums.swift in Sources */,
 				2F23BE502BF767B3001C87EA /* ButterflyAnimator.swift in Sources */,
-				2F4F108E2BFC9C5A00C2FF2B /* MotionControl.swift in Sources */,
+				2F4F108E2BFC9C5A00C2FF2B /* MotionController.swift in Sources */,
 				2FA02C062B719534008BC355 /* ImageEditView.swift in Sources */,
 				2FFD8D382AF3FE2300B80D62 /* CameraViewModel.swift in Sources */,
 				2FFD8D242AF3FD6000B80D62 /* AugDragonApp.swift in Sources */,
